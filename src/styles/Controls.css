@@ -1,0 +1,48 @@
+.controls {
+  position: fixed;
+  top: 28px;
+  right: 28px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.controls__divider {
+  width: 1px;
+  height: 12px;
+  background: var(--color-border-hover);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle__option {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-link);
+  transition: color 0.25s ease;
+}
+
+.toggle__option:hover {
+  color: var(--color-link-hover);
+}
+
+.toggle__option.is-active {
+  color: var(--color-text);
+}
+
+.toggle__option--icon {
+  font-size: 12px;
+  letter-spacing: 0;
+}

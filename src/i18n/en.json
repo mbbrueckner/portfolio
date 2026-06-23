@@ -3,5 +3,11 @@
     "name": "Mika Brückner",
     "title": "Student · Developer · Runner",
     "scroll": "scroll"
+  },
+  "controls": {
+    "language": "Select language",
+    "theme": "Toggle appearance",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode"
   }
 }
