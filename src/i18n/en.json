@@ -17,5 +17,15 @@
       "project-2": { "tags": "Category" },
       "project-3": { "tags": "Category" }
     }
+  },
+  "about": {
+    "eyebrow": "02 / About",
+    "bio": "Placeholder text. A short description goes here.",
+    "stats": {
+      "studies": "Studies",
+      "stack": "Stack",
+      "pb": "5k personal best",
+      "location": "Location"
+    }
   }
 }

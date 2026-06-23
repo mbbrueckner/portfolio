@@ -1,3 +1,4 @@
+import About from './components/About';
 import AsciiBackground from './components/AsciiBackground';
 import Controls from './components/Controls';
 import Hero from './components/Hero';
@@ -11,6 +12,7 @@ function App() {
       <main className="content">
         <Hero />
         <Projects />
+        <About />
       </main>
     </>
   );

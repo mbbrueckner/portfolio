@@ -17,5 +17,15 @@
       "project-2": { "tags": "Kategorie" },
       "project-3": { "tags": "Kategorie" }
     }
+  },
+  "about": {
+    "eyebrow": "02 / Über mich",
+    "bio": "Platzhaltertext. Hier folgt eine kurze Beschreibung.",
+    "stats": {
+      "studies": "Studium",
+      "stack": "Stack",
+      "pb": "5k Bestzeit",
+      "location": "Standort"
+    }
   }
 }
