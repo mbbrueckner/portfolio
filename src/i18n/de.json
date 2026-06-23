@@ -9,5 +9,13 @@
     "theme": "Erscheinungsbild umschalten",
     "lightMode": "Heller Modus",
     "darkMode": "Dunkler Modus"
+  },
+  "projects": {
+    "eyebrow": "01 / Projekte",
+    "items": {
+      "project-1": { "tags": "Kategorie" },
+      "project-2": { "tags": "Kategorie" },
+      "project-3": { "tags": "Kategorie" }
+    }
   }
 }

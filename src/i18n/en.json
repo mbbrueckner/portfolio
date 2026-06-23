@@ -9,5 +9,13 @@
     "theme": "Toggle appearance",
     "lightMode": "Light mode",
     "darkMode": "Dark mode"
+  },
+  "projects": {
+    "eyebrow": "01 / Projects",
+    "items": {
+      "project-1": { "tags": "Category" },
+      "project-2": { "tags": "Category" },
+      "project-3": { "tags": "Category" }
+    }
   }
 }
