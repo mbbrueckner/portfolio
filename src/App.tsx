@@ -1,9 +1,13 @@
+import AsciiBackground from './components/AsciiBackground';
 import Hero from './components/Hero';
 
 function App() {
   return (
     <>
-      <Hero />
+      <AsciiBackground />
+      <main className="content">
+        <Hero />
+      </main>
     </>
   );
 }
