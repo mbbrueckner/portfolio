@@ -1,0 +1,36 @@
+.contact {
+  padding-bottom: 160px;
+}
+
+.contact__email {
+  display: inline-block;
+  margin-bottom: 48px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-contact);
+  font-weight: var(--fw-thin);
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  transition: color 0.3s ease;
+}
+
+.contact__email:hover {
+  color: var(--color-text-strong);
+}
+
+.contact__socials {
+  display: flex;
+  gap: 36px;
+}
+
+.contact__social {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-link);
+  transition: color 0.25s ease;
+}
+
+.contact__social:hover {
+  color: var(--color-link-hover);
+}
