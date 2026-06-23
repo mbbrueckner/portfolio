@@ -14,9 +14,16 @@ export const resources = {
 export const supportedLanguages = ['de', 'en'] as const;
 export type SupportedLanguage = (typeof supportedLanguages)[number];
 
+export const LANGUAGE_STORAGE_KEY = 'language';
+
+function getInitialLanguage(): SupportedLanguage {
+  const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+  return stored === 'en' || stored === 'de' ? stored : 'de';
+}
+
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'de',
+  lng: getInitialLanguage(),
   fallbackLng: 'en',
   supportedLngs: supportedLanguages,
   defaultNS,
@@ -24,5 +31,12 @@ i18n.use(initReactI18next).init({
     escapeValue: false,
   },
 });
+
+i18n.on('languageChanged', (lng) => {
+  localStorage.setItem(LANGUAGE_STORAGE_KEY, lng);
+  document.documentElement.lang = lng;
+});
+
+document.documentElement.lang = i18n.resolvedLanguage ?? 'de';
 
 export default i18n;
