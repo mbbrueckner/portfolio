@@ -16,13 +16,11 @@ export type SupportedLanguage = (typeof supportedLanguages)[number];
 
 i18n.use(initReactI18next).init({
   resources,
-  // German is the default language; English is the fallback.
   lng: 'de',
   fallbackLng: 'en',
   supportedLngs: supportedLanguages,
   defaultNS,
   interpolation: {
-    // React already escapes values, so i18next must not double-escape.
     escapeValue: false,
   },
 });
