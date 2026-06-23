@@ -1,3 +1,5 @@
+import { MotionConfig } from 'framer-motion';
+
 import About from './components/About';
 import AsciiBackground from './components/AsciiBackground';
 import Contact from './components/Contact';
@@ -7,7 +9,7 @@ import Projects from './components/Projects';
 
 function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <AsciiBackground />
       <Controls />
       <main className="content">
@@ -16,7 +18,7 @@ function App() {
         <About />
         <Contact />
       </main>
-    </>
+    </MotionConfig>
   );
 }
 

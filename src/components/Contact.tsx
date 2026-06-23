@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
+import { fadeUp, stagger } from '../animations';
 import { contactEmail, socialLinks } from '../data/contact';
 
 import '../styles/Contact.css';
@@ -8,30 +10,42 @@ function Contact() {
   const { t } = useTranslation();
 
   return (
-    <section id="contact" className="section contact">
-      <div className="section-head">
+    <motion.section
+      id="contact"
+      className="section contact"
+      variants={stagger}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <motion.div className="section-head" variants={fadeUp}>
         <p className="section-head__eyebrow">{t('contact.eyebrow')}</p>
         <div className="section-head__rule" />
-      </div>
+      </motion.div>
 
-      <a className="contact__email" href={`mailto:${contactEmail}`}>
+      <motion.a
+        className="contact__email"
+        href={`mailto:${contactEmail}`}
+        variants={fadeUp}
+      >
         {contactEmail}
-      </a>
+      </motion.a>
 
-      <div className="contact__socials">
+      <motion.div className="contact__socials" variants={stagger}>
         {socialLinks.map((link) => (
-          <a
+          <motion.a
             className="contact__social"
             key={link.id}
             href={link.url}
             target="_blank"
             rel="noreferrer"
+            variants={fadeUp}
           >
             {link.label}
-          </a>
+          </motion.a>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 

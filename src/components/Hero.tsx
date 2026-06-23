@@ -1,4 +1,7 @@
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+
+import { fadeUp, stagger } from '../animations';
 
 import '../styles/Hero.css';
 
@@ -6,16 +9,25 @@ function Hero() {
   const { t } = useTranslation();
 
   return (
-    <section className="hero" data-screen-label="hero">
-      <h1 className="hero__name">{t('hero.name')}</h1>
-      <div className="hero__divider" />
-      <p className="hero__title">{t('hero.title')}</p>
+    <motion.section
+      className="hero"
+      variants={stagger}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.h1 className="hero__name" variants={fadeUp}>
+        {t('hero.name')}
+      </motion.h1>
+      <motion.div className="hero__divider" variants={fadeUp} />
+      <motion.p className="hero__title" variants={fadeUp}>
+        {t('hero.title')}
+      </motion.p>
 
-      <div className="hero__scroll">
+      <motion.div className="hero__scroll" variants={fadeUp}>
         <span className="hero__scroll-label">{t('hero.scroll')}</span>
         <span className="hero__scroll-line" />
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 

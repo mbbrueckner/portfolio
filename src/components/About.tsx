@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
+import { fadeUp, stagger } from '../animations';
 import { aboutStats } from '../data/about';
 
 import '../styles/About.css';
@@ -8,24 +10,33 @@ function About() {
   const { t } = useTranslation();
 
   return (
-    <section id="about" className="section about">
-      <div className="section-head">
+    <motion.section
+      id="about"
+      className="section about"
+      variants={stagger}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <motion.div className="section-head" variants={fadeUp}>
         <p className="section-head__eyebrow">{t('about.eyebrow')}</p>
         <div className="section-head__rule" />
-      </div>
+      </motion.div>
 
       <div className="about__grid">
-        <p className="about__bio">{t('about.bio')}</p>
-        <dl className="about__stats">
+        <motion.p className="about__bio" variants={fadeUp}>
+          {t('about.bio')}
+        </motion.p>
+        <motion.dl className="about__stats" variants={stagger}>
           {aboutStats.map((stat) => (
-            <div className="about__stat" key={stat.id}>
+            <motion.div className="about__stat" key={stat.id} variants={fadeUp}>
               <dt className="about__stat-label">{t(`about.stats.${stat.id}`)}</dt>
               <dd className="about__stat-value">{stat.value}</dd>
-            </div>
+            </motion.div>
           ))}
-        </dl>
+        </motion.dl>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
