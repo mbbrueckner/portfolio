@@ -1,0 +1,125 @@
+/*
+ * Global styles & design tokens.
+ *
+ * Theming model:
+ *   :root holds the dark theme (the design default, #0a0a0a).
+ *   [data-theme="light"] overrides the same tokens for light mode.
+ * The theme is selected by setting `data-theme` on the <html> element.
+ *
+ * Color tokens are exposed both as ready-to-use rgba() values and, where a
+ * consumer needs to vary the alpha at runtime (e.g. the canvas ASCII layer),
+ * as bare "r, g, b" channel triplets so they can be composed with rgb()/rgba().
+ */
+
+:root {
+  /* ---- Typography ---- */
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
+
+  --fw-thin: 100;
+  --fw-extralight: 200;
+  --fw-light: 300;
+
+  /* Fluid font sizes (min, preferred, max) */
+  --fs-hero: clamp(28px, 4.5vw, 66px);
+  --fs-section-heading: clamp(16px, 2.2vw, 32px);
+  --fs-contact: clamp(20px, 2.8vw, 44px);
+  --fs-body: clamp(14px, 1.3vw, 19px);
+  --fs-meta: clamp(9px, 0.85vw, 12px);
+  --fs-label: 9px;
+  --fs-index: 10px;
+
+  /* Letter spacing */
+  --ls-hero: 0.28em;
+  --ls-label: 0.45em;
+  --ls-eyebrow: 0.5em;
+  --ls-meta: 0.25em;
+  --ls-heading: 0.04em;
+
+  /* ---- Color channels (for runtime alpha composition) ---- */
+  --bg-rgb: 10, 10, 10;
+  --fg-rgb: 215, 215, 215;
+  --ascii-rgb: 215, 215, 215;
+
+  /* ---- Semantic colors ---- */
+  --color-bg: rgb(var(--bg-rgb));
+
+  /* Text */
+  --color-text-strong: rgba(228, 228, 228, 0.92); /* hero name */
+  --color-text: rgba(205, 205, 205, 0.8);         /* primary titles */
+  --color-text-body: rgba(170, 170, 170, 0.65);   /* paragraphs */
+  --color-text-muted: rgba(150, 150, 150, 0.45);  /* stat values */
+  --color-text-subtle: rgba(140, 140, 140, 0.5);  /* hero subtitle */
+  --color-text-faint: rgba(100, 100, 100, 0.35);  /* eyebrows / labels */
+  --color-text-dim: rgba(90, 90, 90, 0.4);        /* list indices */
+  --color-text-ghost: rgba(80, 80, 80, 0.25);     /* years */
+
+  /* Interactive */
+  --color-link: rgba(90, 90, 90, 0.35);
+  --color-link-hover: rgba(170, 170, 170, 0.55);
+
+  /* Lines */
+  --color-divider: rgba(200, 200, 200, 0.15);  /* hero accent rule */
+  --color-rule: rgba(255, 255, 255, 0.06);     /* section underlines */
+  --color-border: rgba(255, 255, 255, 0.05);   /* list row borders */
+  --color-border-hover: rgba(255, 255, 255, 0.15);
+
+  /* ---- Layout ---- */
+  --section-padding-x: 10vw;
+  --content-max-width: 960px;
+}
+
+[data-theme='light'] {
+  --bg-rgb: 245, 245, 245;
+  --fg-rgb: 30, 30, 30;
+  --ascii-rgb: 40, 40, 40;
+
+  --color-text-strong: rgba(20, 20, 20, 0.92);
+  --color-text: rgba(35, 35, 35, 0.85);
+  --color-text-body: rgba(60, 60, 60, 0.7);
+  --color-text-muted: rgba(80, 80, 80, 0.6);
+  --color-text-subtle: rgba(90, 90, 90, 0.6);
+  --color-text-faint: rgba(120, 120, 120, 0.5);
+  --color-text-dim: rgba(130, 130, 130, 0.5);
+  --color-text-ghost: rgba(150, 150, 150, 0.4);
+
+  --color-link: rgba(120, 120, 120, 0.5);
+  --color-link-hover: rgba(40, 40, 40, 0.75);
+
+  --color-divider: rgba(40, 40, 40, 0.15);
+  --color-rule: rgba(0, 0, 0, 0.08);
+  --color-border: rgba(0, 0, 0, 0.07);
+  --color-border-hover: rgba(0, 0, 0, 0.18);
+}
+
+/* ---- Reset ---- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Smooth transition when toggling theme */
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#root {
+  isolation: isolate;
+}
