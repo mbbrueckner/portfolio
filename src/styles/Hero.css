@@ -1,0 +1,63 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  /* The hero is purely presentational; let interactions reach the canvas. */
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__name {
+  font-family: var(--font-sans);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-thin);
+  letter-spacing: var(--ls-hero);
+  text-transform: uppercase;
+  text-wrap: nowrap;
+  color: var(--color-text-strong);
+}
+
+.hero__divider {
+  width: 32px;
+  height: 1px;
+  background: var(--color-divider);
+}
+
+.hero__title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero__scroll-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-text-faint),
+    transparent
+  );
+}
