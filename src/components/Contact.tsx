@@ -16,7 +16,7 @@ function Contact() {
       variants={stagger}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ amount: 0.2 }}
     >
       <motion.div className="section-head" variants={fadeUp}>
         <p className="section-head__eyebrow">{t('contact.eyebrow')}</p>
