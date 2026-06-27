@@ -48,6 +48,17 @@
   --color-border: rgba(255, 255, 255, 0.05);
   --color-border-hover: rgba(255, 255, 255, 0.15);
 
+  /* Liquid glass */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.22);
+  --glass-shadow: 0 18px 55px rgba(0, 0, 0, 0.55);
+  --glass-sheen: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.02) 55%
+  );
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
   /* Layout */
   --section-padding-x: 10vw;
   --content-max-width: 960px;
@@ -74,6 +85,16 @@
   --color-rule: rgba(0, 0, 0, 0.08);
   --color-border: rgba(0, 0, 0, 0.07);
   --color-border-hover: rgba(0, 0, 0, 0.18);
+
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 18px 55px rgba(0, 0, 0, 0.14);
+  --glass-sheen: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.25) 55%
+  );
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 /* ---- Reset ---- */
