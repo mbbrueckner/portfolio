@@ -13,15 +13,35 @@ interface ProjectItemProps {
   project: ProjectEntry;
   index: number;
   isActive: boolean;
+  isPinned: boolean;
+  onToggle: (id: string) => void;
 }
 
-function ProjectItem({ project, index, isActive }: ProjectItemProps) {
+function ProjectItem({
+  project,
+  index,
+  isActive,
+  isPinned,
+  onToggle,
+}: ProjectItemProps) {
   const { t } = useTranslation();
+  const cardId = `${project.id}-card`;
 
   return (
-    <li className={`project${isActive ? ' is-active' : ''}`}>
+    <li
+      className={`project${isActive ? ' is-active' : ''}${
+        isPinned ? ' is-pinned' : ''
+      }`}
+    >
       <div className="project__inner">
-        <div className="project__row" data-scroll-id={project.id}>
+        <button
+          type="button"
+          className="project__row"
+          data-scroll-id={project.id}
+          onClick={() => onToggle(project.id)}
+          aria-expanded={isActive}
+          aria-controls={cardId}
+        >
           <div className="project__main">
             <span className="project__index">
               {String(index + 1).padStart(2, '0')}
@@ -33,18 +53,20 @@ function ProjectItem({ project, index, isActive }: ProjectItemProps) {
               {t(`projects.items.${project.id}.tags`)}
             </span>
             <span className="project__year">{project.year}</span>
+            <span className="project__marker" aria-hidden="true" />
           </div>
-        </div>
+        </button>
 
         <AnimatePresence initial={false}>
           {isActive && (
             <motion.div
               key="card"
+              id={cardId}
               className="project__card"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.4, ease }}
+              transition={{ duration: 0.55, ease }}
             >
               <div className="project__card-body">
                 <p className="project__description">
@@ -76,9 +98,8 @@ function ProjectItem({ project, index, isActive }: ProjectItemProps) {
 
 function Projects() {
   const { t } = useTranslation();
-  const { containerRef, activeId } = useActiveOnScroll<HTMLUListElement>(
-    projects[0]?.id ?? null,
-  );
+  const { containerRef, activeId, pinnedId, togglePinned } =
+    useActiveOnScroll<HTMLUListElement>(projects[0]?.id ?? null);
 
   return (
     <motion.section
@@ -101,6 +122,8 @@ function Projects() {
             project={project}
             index={index}
             isActive={project.id === activeId}
+            isPinned={project.id === pinnedId}
+            onToggle={togglePinned}
           />
         ))}
       </ul>
