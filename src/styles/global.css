@@ -29,9 +29,9 @@
   --fg-rgb: 215, 215, 215;
 
   /* Shader background */
-  --shader-accent-rgb: 20, 76, 98;
-  --shader-accent-alt-rgb: 98, 37, 100;
-  --shader-intensity: 0.72;
+  --shader-accent-rgb: 8, 76, 103;
+  --shader-accent-alt-rgb: 111, 9, 115;
+  --shader-intensity: 0.95;
   --shader-core-boost: 1.12;
   /* Veil over the shader: text sits on moving color, so this buys contrast. */
   --shader-veil: 0;
@@ -78,9 +78,9 @@
   --bg-rgb: 245, 245, 245;
   --fg-rgb: 30, 30, 30;
 
-  --shader-accent-rgb: 126, 196, 228;
-  --shader-accent-alt-rgb: 206, 168, 216;
-  --shader-intensity: 0.95;
+  --shader-accent-rgb: 100, 198, 242;
+  --shader-accent-alt-rgb: 227, 154, 247;
+  --shader-intensity: 1;
   --shader-core-boost: 1.06;
   --shader-veil: 0;
 
