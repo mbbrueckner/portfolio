@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ease, fadeUp, stagger } from '../animations';
 import { projects } from '../data/projects';
 import { useActiveOnScroll } from '../hooks/useActiveOnScroll';
+import { useLocale } from '../hooks/useLocale';
 
 import '../styles/Projects.css';
 
@@ -25,6 +26,7 @@ function ProjectItem({
   onToggle,
 }: ProjectItemProps) {
   const { t } = useTranslation();
+  const locale = useLocale();
   const cardId = `${project.id}-card`;
 
   return (
@@ -49,9 +51,7 @@ function ProjectItem({
             <span className="project__title">{project.title}</span>
           </div>
           <div className="project__meta">
-            <span className="project__tags">
-              {t(`projects.items.${project.id}.tags`)}
-            </span>
+            <span className="project__tags">{project.tags[locale]}</span>
             <span className="project__year">{project.year}</span>
             <span className="project__marker" aria-hidden="true" />
           </div>
@@ -70,7 +70,7 @@ function ProjectItem({
             >
               <div className="project__card-body">
                 <p className="project__description">
-                  {t(`projects.items.${project.id}.description`)}
+                  {project.description[locale]}
                 </p>
                 <ul className="project__stack">
                   {project.stack.map((tech, techIndex) => (

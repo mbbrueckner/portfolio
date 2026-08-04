@@ -13,21 +13,7 @@
   },
   "projects": {
     "eyebrow": "Projekte",
-    "viewProject": "Projekt ansehen",
-    "items": {
-      "project-1": {
-        "tags": "Kategorie",
-        "description": "Platzhalterbeschreibung. Hier folgt eine ausführlichere Beschreibung des Projekts."
-      },
-      "project-2": {
-        "tags": "Kategorie",
-        "description": "Platzhalterbeschreibung. Hier folgt eine ausführlichere Beschreibung des Projekts."
-      },
-      "project-3": {
-        "tags": "Kategorie",
-        "description": "Platzhalterbeschreibung. Hier folgt eine ausführlichere Beschreibung des Projekts."
-      }
-    }
+    "viewProject": "Projekt ansehen"
   },
   "about": {
     "eyebrow": "Über mich",

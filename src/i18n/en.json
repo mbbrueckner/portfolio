@@ -13,21 +13,7 @@
   },
   "projects": {
     "eyebrow": "Projects",
-    "viewProject": "View project",
-    "items": {
-      "project-1": {
-        "tags": "Category",
-        "description": "Placeholder description. A longer project description goes here."
-      },
-      "project-2": {
-        "tags": "Category",
-        "description": "Placeholder description. A longer project description goes here."
-      },
-      "project-3": {
-        "tags": "Category",
-        "description": "Placeholder description. A longer project description goes here."
-      }
-    }
+    "viewProject": "View project"
   },
   "about": {
     "eyebrow": "About",
