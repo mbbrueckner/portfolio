@@ -15,10 +15,17 @@ function Hero() {
       initial="hidden"
       animate="visible"
     >
+      <motion.div className="section-head" variants={fadeUp}>
+        <div className="section-head__top">
+          <span className="section-head__index">00</span>
+          <p className="section-head__eyebrow">{t('hero.eyebrow')}</p>
+        </div>
+        <div className="section-head__rule" />
+      </motion.div>
+
       <motion.h1 className="hero__name" variants={fadeUp}>
         {t('hero.name')}
       </motion.h1>
-      <motion.div className="hero__divider" variants={fadeUp} />
       <motion.p className="hero__title" variants={fadeUp}>
         {t('hero.title')}
       </motion.p>

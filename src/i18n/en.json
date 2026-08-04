@@ -2,16 +2,15 @@
   "hero": {
     "name": "Mika Brückner",
     "title": "Student · Developer · Runner",
-    "scroll": "scroll"
+    "scroll": "scroll",
+    "eyebrow": "Portfolio"
   },
   "controls": {
     "language": "Select language",
-    "theme": "Toggle appearance",
-    "lightMode": "Light mode",
-    "darkMode": "Dark mode"
+    "theme": "Toggle appearance"
   },
   "projects": {
-    "eyebrow": "01 / Projects",
+    "eyebrow": "Projects",
     "viewProject": "View project",
     "items": {
       "project-1": {
@@ -29,7 +28,7 @@
     }
   },
   "about": {
-    "eyebrow": "02 / About",
+    "eyebrow": "About",
     "bio": "Placeholder text. A short description goes here.",
     "stats": {
       "studies": "Studies",
@@ -39,6 +38,6 @@
     }
   },
   "contact": {
-    "eyebrow": "03 / Contact"
+    "eyebrow": "Contact"
   }
 }
