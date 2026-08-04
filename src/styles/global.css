@@ -28,9 +28,9 @@
   --fg-rgb: 215, 215, 215;
 
   /* Shader background */
-  --shader-accent-rgb: 58, 104, 122;
-  --shader-accent-alt-rgb: 118, 68, 116;
-  --shader-intensity: 0.62;
+  --shader-accent-rgb: 34, 132, 166;
+  --shader-accent-alt-rgb: 146, 54, 148;
+  --shader-intensity: 0.72;
 
   /* Semantic colors */
   --color-bg: rgb(var(--bg-rgb));
@@ -72,9 +72,9 @@
   --bg-rgb: 245, 245, 245;
   --fg-rgb: 30, 30, 30;
 
-  --shader-accent-rgb: 176, 198, 208;
-  --shader-accent-alt-rgb: 208, 186, 206;
-  --shader-intensity: 0.85;
+  --shader-accent-rgb: 132, 180, 204;
+  --shader-accent-alt-rgb: 196, 156, 200;
+  --shader-intensity: 0.9;
 
   --color-text-strong: rgba(12, 12, 12, 0.95);
   --color-text: rgba(28, 28, 28, 0.9);
