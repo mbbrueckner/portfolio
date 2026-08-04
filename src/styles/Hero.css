@@ -3,11 +3,18 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  gap: 20px;
+  gap: 22px;
+  padding: 0 var(--section-padding-x);
   pointer-events: none;
   user-select: none;
+}
+
+.hero .section-head {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-bottom: 10px;
 }
 
 .hero__name {
@@ -16,14 +23,7 @@
   font-weight: var(--fw-thin);
   letter-spacing: var(--ls-hero);
   text-transform: uppercase;
-  text-wrap: nowrap;
   color: var(--color-text-strong);
-}
-
-.hero__divider {
-  width: 32px;
-  height: 1px;
-  background: var(--color-divider);
 }
 
 .hero__title {
@@ -37,9 +37,10 @@
 .hero__scroll {
   position: absolute;
   bottom: 40px;
+  left: var(--section-padding-x);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
 }
 

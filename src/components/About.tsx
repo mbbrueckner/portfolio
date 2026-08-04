@@ -30,7 +30,7 @@ function About() {
         <motion.p className="about__bio" variants={fadeUp}>
           {t('about.bio')}
         </motion.p>
-        <motion.dl className="about__stats panel" variants={stagger}>
+        <motion.dl className="about__stats" variants={stagger}>
           {aboutStats.map((stat) => (
             <motion.div className="about__stat" key={stat.id} variants={fadeUp}>
               <dt className="about__stat-label">{t(`about.stats.${stat.id}`)}</dt>

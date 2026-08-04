@@ -50,7 +50,51 @@
   color: var(--color-text);
 }
 
-.toggle__option--icon {
-  font-size: 12px;
-  letter-spacing: 0;
+.switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 46px;
+  height: 24px;
+  padding: 0 7px;
+  border: 1px solid var(--color-border-hover);
+  border-radius: 999px;
+  background: none;
+  cursor: pointer;
+}
+
+.switch__glyph {
+  position: relative;
+  z-index: 1;
+  font-size: 10px;
+  line-height: 1;
+  color: var(--color-text-ghost);
+  transition: color 0.3s ease;
+}
+
+.switch__knob {
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-text);
+  transform: translate(0, -50%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.switch.is-on .switch__knob {
+  transform: translate(22px, -50%);
+}
+
+.switch:hover .switch__glyph {
+  color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .switch__knob {
+    transition: none;
+  }
 }

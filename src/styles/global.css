@@ -8,7 +8,8 @@
   --fw-light: 300;
 
   /* Font sizes */
-  --fs-hero: clamp(28px, 4.5vw, 66px);
+  --fs-hero: clamp(24px, 2.9vw, 38px);
+  --fs-statement: clamp(19px, 2.3vw, 31px);
   --fs-section-heading: clamp(16px, 2.2vw, 32px);
   --fs-contact: clamp(20px, 2.8vw, 44px);
   --fs-body: clamp(14px, 1.3vw, 19px);
@@ -17,7 +18,7 @@
   --fs-index: 10px;
 
   /* Letter spacing */
-  --ls-hero: 0.28em;
+  --ls-hero: 0.16em;
   --ls-label: 0.45em;
   --ls-eyebrow: 0.5em;
   --ls-meta: 0.25em;
