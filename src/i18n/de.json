@@ -4,6 +4,9 @@
     "title": "Student · Developer · Runner",
     "eyebrow": "Portfolio"
   },
+  "nav": {
+    "label": "Seitennavigation"
+  },
   "controls": {
     "language": "Sprache wählen",
     "theme": "Erscheinungsbild umschalten"
