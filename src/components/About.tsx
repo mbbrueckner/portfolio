@@ -19,7 +19,10 @@ function About() {
       viewport={{ amount: 0.2 }}
     >
       <motion.div className="section-head" variants={fadeUp}>
-        <p className="section-head__eyebrow">{t('about.eyebrow')}</p>
+        <div className="section-head__top">
+          <span className="section-head__index">02</span>
+          <p className="section-head__eyebrow">{t('about.eyebrow')}</p>
+        </div>
         <div className="section-head__rule" />
       </motion.div>
 
@@ -27,7 +30,7 @@ function About() {
         <motion.p className="about__bio" variants={fadeUp}>
           {t('about.bio')}
         </motion.p>
-        <motion.dl className="about__stats" variants={stagger}>
+        <motion.dl className="about__stats panel" variants={stagger}>
           {aboutStats.map((stat) => (
             <motion.div className="about__stat" key={stat.id} variants={fadeUp}>
               <dt className="about__stat-label">{t(`about.stats.${stat.id}`)}</dt>
