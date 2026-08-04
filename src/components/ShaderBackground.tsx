@@ -23,6 +23,7 @@ uniform vec3 uBackground;
 uniform vec3 uAccent;
 uniform vec3 uAccentAlt;
 uniform float uIntensity;
+uniform float uCoreBoost;
 
 out vec4 fragColor;
 
@@ -92,7 +93,7 @@ void main() {
 
   float blend = clamp(blob.y / max(field, 0.0001), 0.0, 1.0);
   vec3 accent = mix(uAccent, uAccentAlt, blend);
-  vec3 core = clamp(accent * 1.35, 0.0, 1.0);
+  vec3 core = clamp(accent * uCoreBoost, 0.0, 1.0);
 
   vec3 color = uBackground;
   color = mix(color, accent, glow * 0.22 * uIntensity);
@@ -201,12 +202,14 @@ function ShaderBackground({ speed = 1 }: ShaderBackgroundProps) {
       accent: gl.getUniformLocation(program, 'uAccent'),
       accentAlt: gl.getUniformLocation(program, 'uAccentAlt'),
       intensity: gl.getUniformLocation(program, 'uIntensity'),
+      coreBoost: gl.getUniformLocation(program, 'uCoreBoost'),
     };
 
     let background = readChannels(root, '--bg-rgb', [0.04, 0.04, 0.04]);
     let accent = readChannels(root, '--shader-accent-rgb', [0.25, 0.42, 0.5]);
     let accentAlt = readChannels(root, '--shader-accent-alt-rgb', [0.45, 0.28, 0.48]);
     let intensity = readNumber(root, '--shader-intensity', 0.55);
+    let coreBoost = readNumber(root, '--shader-core-boost', 1.35);
 
     const mouse = { x: 0, y: 0 };
     const smoothMouse = { x: 0, y: 0 };
@@ -235,6 +238,7 @@ function ShaderBackground({ speed = 1 }: ShaderBackgroundProps) {
         accentAlt[2],
       );
       gl.uniform1f(uniforms.intensity, intensity);
+      gl.uniform1f(uniforms.coreBoost, coreBoost);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     };
 
@@ -298,6 +302,7 @@ function ShaderBackground({ speed = 1 }: ShaderBackgroundProps) {
       accent = readChannels(root, '--shader-accent-rgb', accent);
       accentAlt = readChannels(root, '--shader-accent-alt-rgb', accentAlt);
       intensity = readNumber(root, '--shader-intensity', intensity);
+      coreBoost = readNumber(root, '--shader-core-boost', coreBoost);
       if (prefersReducedMotion) draw();
     });
     themeObserver.observe(root, {
