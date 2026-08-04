@@ -5,8 +5,9 @@
   z-index: 20;
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 6px 14px;
+  /* No gap: a collapsed nav must not leave a residual slot behind. */
+  gap: 0;
+  padding: 6px 8px;
   overflow: hidden;
   border: 1px solid var(--color-border-hover);
   border-radius: 999px;
@@ -15,8 +16,9 @@
 
 .controls__group {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
-  padding: 0 4px;
+  padding: 0 10px;
 }
 
 .controls__divider {
@@ -29,8 +31,11 @@
 @media (max-width: 720px) {
   .controls {
     right: 20px;
-    gap: 12px;
-    padding: 6px 10px;
+    padding: 6px 6px;
+  }
+
+  .controls__group {
+    padding: 0 7px;
   }
 }
 

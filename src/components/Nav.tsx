@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, type Variants } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -19,18 +19,21 @@ const items = [
 ] as const;
 
 const navVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 1.3, ease, delayChildren: 0.7, staggerChildren: 0.13 },
+  hidden: {
+    width: 0,
+    opacity: 0,
+    transition: { duration: 1.1, ease },
   },
-  exit: { opacity: 0, transition: { duration: 0.5, ease } },
+  visible: {
+    width: 'auto',
+    opacity: 1,
+    transition: { duration: 1.8, ease, delayChildren: 0.5, staggerChildren: 0.13 },
+  },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, x: 14 },
+  hidden: { opacity: 0, x: 14, transition: { duration: 0.4, ease } },
   visible: { opacity: 1, x: 0, transition: { duration: 0.85, ease } },
-  exit: { opacity: 0, transition: { duration: 0.25 } },
 };
 
 function Nav({ isVisible }: NavProps) {
@@ -77,51 +80,46 @@ function Nav({ isVisible }: NavProps) {
   }, []);
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          key="nav"
-          className="nav"
-          variants={navVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-        >
-          <nav aria-label={t('nav.label')}>
-            <ul className="nav__list">
-              {items.map((item) => {
-                const isActive = item.id === activeId;
-                return (
-                  <motion.li key={item.id} variants={itemVariants}>
-                    <a
-                      className={`nav__link${isActive ? ' is-active' : ''}`}
-                      href={`#${item.id}`}
-                      aria-current={isActive ? 'true' : undefined}
-                      onClick={(event) => {
-                        event.preventDefault();
-                        scrollToSection(item.id);
-                        history.replaceState(null, '', `#${item.id}`);
-                      }}
-                    >
-                      {isActive && (
-                        <motion.span
-                          className="nav__highlight"
-                          layoutId="nav-highlight"
-                          transition={{ duration: 0.4, ease }}
-                        />
-                      )}
-                      <span className="nav__index">{item.index}</span>
-                      <span className="nav__label">{t(item.labelKey)}</span>
-                    </a>
-                  </motion.li>
-                );
-              })}
-            </ul>
-          </nav>
-          <span className="controls__divider" />
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <motion.div
+      className="nav"
+      variants={navVariants}
+      initial={false}
+      animate={isVisible ? 'visible' : 'hidden'}
+    >
+      <nav aria-label={t('nav.label')} aria-hidden={!isVisible}>
+        <ul className="nav__list">
+          {items.map((item) => {
+            const isActive = item.id === activeId;
+            return (
+              <motion.li key={item.id} variants={itemVariants}>
+                <a
+                  className={`nav__link${isActive ? ' is-active' : ''}`}
+                  href={`#${item.id}`}
+                  aria-current={isActive ? 'true' : undefined}
+                  tabIndex={isVisible ? undefined : -1}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    scrollToSection(item.id);
+                    history.replaceState(null, '', `#${item.id}`);
+                  }}
+                >
+                  {isActive && (
+                    <motion.span
+                      className="nav__highlight"
+                      layoutId="nav-highlight"
+                      transition={{ duration: 0.4, ease }}
+                    />
+                  )}
+                  <span className="nav__index">{item.index}</span>
+                  <span className="nav__label">{t(item.labelKey)}</span>
+                </a>
+              </motion.li>
+            );
+          })}
+        </ul>
+      </nav>
+      <span className="controls__divider" />
+    </motion.div>
   );
 }
 
