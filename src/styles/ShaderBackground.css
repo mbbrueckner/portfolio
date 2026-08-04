@@ -3,6 +3,11 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  background: var(--color-bg);
+}
+
+/* Only when WebGL2 is unavailable, so a broken shader stays visibly broken */
+.shader-background[data-fallback='true'] {
   background:
     radial-gradient(
       120% 90% at 50% 40%,

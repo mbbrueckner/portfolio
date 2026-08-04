@@ -150,10 +150,15 @@ function readNumber(root: HTMLElement, name: string, fallback: number) {
 
 function ShaderBackground({ speed = 1 }: ShaderBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
+    const markFallback = () => {
+      rootRef.current?.setAttribute('data-fallback', 'true');
+    };
 
     const gl = canvas.getContext('webgl2', {
       alpha: false,
@@ -162,10 +167,17 @@ function ShaderBackground({ speed = 1 }: ShaderBackgroundProps) {
       stencil: false,
       powerPreference: 'low-power',
     });
-    if (!gl) return;
+    if (!gl) {
+      markFallback();
+      return;
+    }
 
     const program = createProgram(gl);
-    if (!program) return;
+    if (!program) {
+      markFallback();
+      return;
+    }
+    rootRef.current?.removeAttribute('data-fallback');
 
     const root = document.documentElement;
     const prefersReducedMotion = window.matchMedia(
@@ -302,12 +314,11 @@ function ShaderBackground({ speed = 1 }: ShaderBackgroundProps) {
       window.removeEventListener('scroll', onScroll);
       document.removeEventListener('visibilitychange', onVisibility);
       gl.deleteProgram(program);
-      gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, [speed]);
 
   return (
-    <div className="shader-background" aria-hidden="true">
+    <div className="shader-background" ref={rootRef} aria-hidden="true">
       <canvas ref={canvasRef} className="shader-background__canvas" />
     </div>
   );
