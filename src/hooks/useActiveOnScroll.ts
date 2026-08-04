@@ -7,8 +7,8 @@ const SETTLE_MS = 520;
 const SWITCH_MARGIN_PX = 56;
 
 // Tracks which `[data-scroll-id]` element inside the container sits closest to
-// the vertical center of the viewport. A pinned id wins over the scroll
-// position until it is toggled off again.
+// the vertical center of the viewport. Clicking pins an id so it stays open
+// while being read; the pin is dropped once its row is scrolled out of view.
 export function useActiveOnScroll<T extends HTMLElement>(
   defaultId: string | null,
 ) {
@@ -42,8 +42,26 @@ export function useActiveOnScroll<T extends HTMLElement>(
 
     let frame = 0;
 
+    const releasePinIfScrolledAway = () => {
+      const pinned = pinnedRef.current;
+      if (!pinned) return;
+
+      const row = container.querySelector<HTMLElement>(
+        `[data-scroll-id="${pinned}"]`,
+      );
+      if (row) {
+        const box = row.getBoundingClientRect();
+        const isOffScreen = box.bottom < 0 || box.top > window.innerHeight;
+        if (!isOffScreen) return;
+      }
+
+      pinnedRef.current = null;
+      setPinnedId(null);
+    };
+
     const measure = () => {
       frame = 0;
+      releasePinIfScrolledAway();
       if (pinnedRef.current) return;
       if (performance.now() < settleUntilRef.current) return;
 
