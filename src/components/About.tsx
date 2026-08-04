@@ -2,12 +2,14 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import { fadeUp, stagger } from '../animations';
-import { aboutStats } from '../data/about';
+import { aboutBio, aboutStats } from '../data/about';
+import { useLocale } from '../hooks/useLocale';
 
 import '../styles/About.css';
 
 function About() {
   const { t } = useTranslation();
+  const locale = useLocale();
 
   return (
     <motion.section
@@ -28,12 +30,12 @@ function About() {
 
       <div className="about__grid">
         <motion.p className="about__bio" variants={fadeUp}>
-          {t('about.bio')}
+          {aboutBio[locale]}
         </motion.p>
         <motion.dl className="about__stats" variants={stagger}>
           {aboutStats.map((stat) => (
             <motion.div className="about__stat" key={stat.id} variants={fadeUp}>
-              <dt className="about__stat-label">{t(`about.stats.${stat.id}`)}</dt>
+              <dt className="about__stat-label">{stat.label[locale]}</dt>
               <dd className="about__stat-value">{stat.value}</dd>
             </motion.div>
           ))}

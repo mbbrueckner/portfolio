@@ -1,13 +1,36 @@
+import type { Localized } from './types';
+
 export interface AboutStat {
   id: string;
+  label: Localized;
   value: string;
 }
 
-// Placeholder stats. Replace values with real data; labels are translated
-// in the i18n `about.stats.<id>` namespace.
-export const aboutStats = [
-  { id: 'studies', value: 'Placeholder' },
-  { id: 'stack', value: 'Placeholder' },
-  { id: 'pb', value: 'Placeholder' },
-  { id: 'location', value: 'Placeholder' },
-] as const satisfies readonly AboutStat[];
+// Placeholder copy. Replace the bio and the stat values with real data.
+export const aboutBio: Localized = {
+  de: 'Platzhaltertext. Hier folgt eine kurze Beschreibung.',
+  en: 'Placeholder text. A short description goes here.',
+};
+
+export const aboutStats: readonly AboutStat[] = [
+  {
+    id: 'studies',
+    label: { de: 'Studium', en: 'Studies' },
+    value: 'Placeholder',
+  },
+  {
+    id: 'stack',
+    label: { de: 'Stack', en: 'Stack' },
+    value: 'Placeholder',
+  },
+  {
+    id: 'pb',
+    label: { de: '5k Bestzeit', en: '5k personal best' },
+    value: 'Placeholder',
+  },
+  {
+    id: 'location',
+    label: { de: 'Standort', en: 'Location' },
+    value: 'Placeholder',
+  },
+];

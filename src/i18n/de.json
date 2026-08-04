@@ -16,14 +16,7 @@
     "viewProject": "Projekt ansehen"
   },
   "about": {
-    "eyebrow": "Über mich",
-    "bio": "Platzhaltertext. Hier folgt eine kurze Beschreibung.",
-    "stats": {
-      "studies": "Studium",
-      "stack": "Stack",
-      "pb": "5k Bestzeit",
-      "location": "Standort"
-    }
+    "eyebrow": "Über mich"
   },
   "contact": {
     "eyebrow": "Kontakt"

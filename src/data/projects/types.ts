@@ -1,6 +1,4 @@
-import type { SupportedLanguage } from '../../i18n';
-
-export type Localized = Record<SupportedLanguage, string>;
+import type { Localized } from '../types';
 
 export interface Project {
   id: string;

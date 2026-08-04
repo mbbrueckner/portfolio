@@ -11,4 +11,4 @@ export const projects: readonly Project[] = Object.entries(modules)
   .map(([, module]) => module.default)
   .sort((a, b) => a.order - b.order);
 
-export type { Project, Localized } from './types';
+export type { Project } from './types';

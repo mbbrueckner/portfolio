@@ -16,14 +16,7 @@
     "viewProject": "View project"
   },
   "about": {
-    "eyebrow": "About",
-    "bio": "Placeholder text. A short description goes here.",
-    "stats": {
-      "studies": "Studies",
-      "stack": "Stack",
-      "pb": "5k personal best",
-      "location": "Location"
-    }
+    "eyebrow": "About"
   },
   "contact": {
     "eyebrow": "Contact"
