@@ -1,5 +1,4 @@
 .hero {
-  position: relative;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,44 +31,4 @@
   letter-spacing: var(--ls-eyebrow);
   text-transform: uppercase;
   color: var(--color-text-subtle);
-}
-
-.hero__scroll {
-  position: absolute;
-  bottom: 40px;
-  left: var(--section-padding-x);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.hero__scroll-line {
-  width: 1px;
-  height: 44px;
-  background: linear-gradient(
-    to bottom,
-    var(--color-text-faint),
-    transparent
-  );
-  transform-origin: top;
-  animation: hero-scroll-drift 3.2s ease-in-out infinite;
-}
-
-@keyframes hero-scroll-drift {
-  0%,
-  100% {
-    transform: scaleY(0.45);
-    opacity: 0.35;
-  }
-  50% {
-    transform: scaleY(1);
-    opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__scroll-line {
-    animation: none;
-  }
 }
