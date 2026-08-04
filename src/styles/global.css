@@ -33,21 +33,23 @@
   --shader-accent-alt-rgb: 146, 54, 148;
   --shader-intensity: 0.72;
   --shader-core-boost: 1.35;
+  /* Veil over the shader: text sits on moving color, so this buys contrast. */
+  --shader-veil: 0.6;
 
   /* Semantic colors */
   --color-bg: rgb(var(--bg-rgb));
 
-  --color-text-strong: rgba(242, 242, 242, 0.97);
-  --color-text: rgba(226, 226, 226, 0.92);
-  --color-text-body: rgba(210, 210, 210, 0.88);
-  --color-text-muted: rgba(200, 200, 200, 0.84);
-  --color-text-subtle: rgba(198, 198, 198, 0.84);
-  --color-text-faint: rgba(194, 194, 194, 0.82);
-  --color-text-dim: rgba(196, 196, 196, 0.84);
-  --color-text-ghost: rgba(186, 186, 186, 0.8);
+  --color-text-strong: rgba(248, 248, 248, 0.98);
+  --color-text: rgba(234, 234, 234, 0.95);
+  --color-text-body: rgba(226, 226, 226, 0.94);
+  --color-text-muted: rgba(220, 220, 220, 0.93);
+  --color-text-subtle: rgba(218, 218, 218, 0.92);
+  --color-text-faint: rgba(214, 214, 214, 0.92);
+  --color-text-dim: rgba(216, 216, 216, 0.92);
+  --color-text-ghost: rgba(206, 206, 206, 0.9);
 
-  --color-link: rgba(192, 192, 192, 0.8);
-  --color-link-hover: rgba(238, 238, 238, 0.96);
+  --color-link: rgba(212, 212, 212, 0.92);
+  --color-link-hover: rgba(248, 248, 248, 0.98);
 
   --color-focus: rgba(255, 255, 255, 0.65);
 
@@ -80,18 +82,19 @@
   --shader-accent-alt-rgb: 152, 82, 166;
   --shader-intensity: 0.95;
   --shader-core-boost: 0.82;
+  --shader-veil: 0.6;
 
-  --color-text-strong: rgba(12, 12, 12, 0.95);
-  --color-text: rgba(28, 28, 28, 0.9);
-  --color-text-body: rgba(50, 50, 50, 0.85);
-  --color-text-muted: rgba(70, 70, 70, 0.82);
-  --color-text-subtle: rgba(74, 74, 74, 0.8);
-  --color-text-faint: rgba(84, 84, 84, 0.78);
-  --color-text-dim: rgba(80, 80, 80, 0.8);
-  --color-text-ghost: rgba(96, 96, 96, 0.72);
+  --color-text-strong: rgba(8, 8, 8, 0.98);
+  --color-text: rgba(24, 24, 24, 0.95);
+  --color-text-body: rgba(34, 34, 34, 0.94);
+  --color-text-muted: rgba(44, 44, 44, 0.93);
+  --color-text-subtle: rgba(46, 46, 46, 0.92);
+  --color-text-faint: rgba(48, 48, 48, 0.92);
+  --color-text-dim: rgba(50, 50, 50, 0.92);
+  --color-text-ghost: rgba(56, 56, 56, 0.9);
 
-  --color-link: rgba(84, 84, 84, 0.75);
-  --color-link-hover: rgba(15, 15, 15, 0.92);
+  --color-link: rgba(48, 48, 48, 0.92);
+  --color-link-hover: rgba(8, 8, 8, 0.98);
 
   --color-focus: rgba(0, 0, 0, 0.55);
 

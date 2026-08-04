@@ -17,6 +17,14 @@
     var(--color-bg);
 }
 
+.shader-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--bg-rgb), var(--shader-veil));
+  pointer-events: none;
+}
+
 .shader-background__canvas {
   position: absolute;
   inset: 0;
