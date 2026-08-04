@@ -29,10 +29,6 @@ function Hero() {
       <motion.p className="hero__title" variants={fadeUp}>
         {t('hero.title')}
       </motion.p>
-
-      <motion.div className="hero__scroll" variants={fadeUp}>
-        <span className="hero__scroll-line" />
-      </motion.div>
     </motion.section>
   );
 }
