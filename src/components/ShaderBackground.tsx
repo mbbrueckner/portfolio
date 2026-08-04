@@ -52,31 +52,49 @@ float fbm(vec2 p) {
   return sum;
 }
 
+float blobs(vec2 p, float t) {
+  float sum = 0.0;
+  for (int i = 0; i < 5; i++) {
+    float fi = float(i);
+    float phase = fi * 2.399;
+    vec2 center = vec2(
+      sin(t * (0.13 + fi * 0.021) + phase) * 0.95,
+      cos(t * (0.11 + fi * 0.017) + phase * 1.37) * 0.62
+    );
+    float radius = 0.46 + 0.16 * sin(t * (0.07 + fi * 0.013) + phase);
+    vec2 d = (p - center) / radius;
+    sum += exp(-dot(d, d) * 1.5);
+  }
+  return sum;
+}
+
 void main() {
   vec2 uv = (gl_FragCoord.xy - 0.5 * uResolution) / uResolution.y;
-  uv *= 1.55;
-  uv += uMouse * 0.14;
-  uv.y += uScroll * 0.85;
+  uv *= 1.35;
+  uv += uMouse * 0.12;
+  uv.y += uScroll * 0.7;
 
-  float t = uTime * 0.055;
+  float t = uTime;
+  float tw = t * 0.075;
 
   vec2 warp = vec2(
-    fbm(uv + vec2(0.0, t)),
-    fbm(uv + vec2(4.3, -t * 0.75))
+    fbm(uv * 1.7 + vec2(0.0, tw)),
+    fbm(uv * 1.7 + vec2(5.2, -tw * 0.8))
   );
-  vec2 flow = vec2(
-    fbm(uv + 2.0 * warp + vec2(1.7, 9.2) + t * 0.45),
-    fbm(uv + 2.0 * warp + vec2(8.3, 2.8) - t * 0.35)
-  );
-  float field = fbm(uv + 2.4 * flow);
+  vec2 p = uv + (warp - 0.5) * 0.75;
 
-  float body = smoothstep(0.18, 0.92, field);
-  float veins = smoothstep(0.58, 1.0, length(flow)) * 0.45;
-  float falloff = smoothstep(1.3, 0.1, length(uv * vec2(0.72, 1.0)));
+  float field = blobs(p, t);
+  float halo = smoothstep(0.12, 0.9, field);
+  float core = smoothstep(0.6, 1.7, field);
+  float grain = fbm(p * 2.4 + vec2(tw * 1.6, -tw * 1.1));
 
-  float mask = clamp((body * 0.85 + veins) * falloff, 0.0, 1.0);
+  float mask = clamp(halo * 0.8 + core * 0.5, 0.0, 1.0);
+  mask *= 0.72 + 0.56 * grain;
+  mask *= mix(0.55, 1.0, smoothstep(1.7, 0.25, length(uv)));
 
-  vec3 color = mix(uBackground, uAccent, mask * uIntensity);
+  vec3 color = mix(uBackground, uAccent, clamp(mask * uIntensity, 0.0, 1.0));
+  color = mix(color, clamp(uAccent * 1.3, 0.0, 1.0), core * 0.28 * uIntensity);
+
   float dither = (hash(gl_FragCoord.xy + fract(uTime)) - 0.5) / 255.0;
 
   fragColor = vec4(color + dither, 1.0);
