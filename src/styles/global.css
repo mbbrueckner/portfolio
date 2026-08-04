@@ -31,6 +31,7 @@
   --shader-accent-rgb: 34, 132, 166;
   --shader-accent-alt-rgb: 146, 54, 148;
   --shader-intensity: 0.72;
+  --shader-core-boost: 1.35;
 
   /* Semantic colors */
   --color-bg: rgb(var(--bg-rgb));
@@ -72,9 +73,10 @@
   --bg-rgb: 245, 245, 245;
   --fg-rgb: 30, 30, 30;
 
-  --shader-accent-rgb: 132, 180, 204;
-  --shader-accent-alt-rgb: 196, 156, 200;
-  --shader-intensity: 0.9;
+  --shader-accent-rgb: 62, 142, 182;
+  --shader-accent-alt-rgb: 152, 82, 166;
+  --shader-intensity: 0.95;
+  --shader-core-boost: 0.82;
 
   --color-text-strong: rgba(12, 12, 12, 0.95);
   --color-text: rgba(28, 28, 28, 0.9);
