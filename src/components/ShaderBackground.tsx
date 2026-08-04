@@ -21,6 +21,7 @@ uniform vec2 uMouse;
 uniform float uScroll;
 uniform vec3 uBackground;
 uniform vec3 uAccent;
+uniform vec3 uAccentAlt;
 uniform float uIntensity;
 
 out vec4 fragColor;
@@ -40,37 +41,32 @@ float noise(vec2 p) {
   return mix(mix(a, b, w.x), mix(c, d, w.x), w.y);
 }
 
-float fbm(vec2 p) {
-  const mat2 turn = mat2(0.8, 0.6, -0.6, 0.8);
-  float sum = 0.0;
-  float amplitude = 0.5;
-  for (int i = 0; i < 5; i++) {
-    sum += amplitude * noise(p);
-    p = turn * p * 2.02;
-    amplitude *= 0.5;
-  }
-  return sum;
+float swirl(vec2 p) {
+  return noise(p) * 0.68 + noise(p * 2.1 + 3.7) * 0.32;
 }
 
-float blobs(vec2 p, float t) {
-  float sum = 0.0;
-  for (int i = 0; i < 5; i++) {
+// x: accumulated field, y: field weighted by each blob's tint
+vec2 blobs(vec2 p, float t) {
+  vec2 sum = vec2(0.0);
+  for (int i = 0; i < 4; i++) {
     float fi = float(i);
     float phase = fi * 2.399;
     vec2 center = vec2(
-      sin(t * (0.13 + fi * 0.021) + phase) * 0.95,
-      cos(t * (0.11 + fi * 0.017) + phase * 1.37) * 0.62
+      sin(t * (0.13 + fi * 0.021) + phase) * 0.86,
+      cos(t * (0.11 + fi * 0.017) + phase * 1.37) * 0.54
     );
-    float radius = 0.46 + 0.16 * sin(t * (0.07 + fi * 0.013) + phase);
+    float radius = 0.7 + 0.13 * sin(t * (0.07 + fi * 0.013) + phase);
     vec2 d = (p - center) / radius;
-    sum += exp(-dot(d, d) * 1.5);
+    float weight = exp(-dot(d, d) * 2.2);
+    float tint = 0.5 + 0.5 * sin(t * 0.045 + fi * 2.1);
+    sum += vec2(weight, weight * tint);
   }
   return sum;
 }
 
 void main() {
   vec2 uv = (gl_FragCoord.xy - 0.5 * uResolution) / uResolution.y;
-  uv *= 1.35;
+  uv *= 1.12;
   uv += uMouse * 0.12;
   uv.y += uScroll * 0.7;
 
@@ -78,22 +74,34 @@ void main() {
   float tw = t * 0.075;
 
   vec2 warp = vec2(
-    fbm(uv * 1.7 + vec2(0.0, tw)),
-    fbm(uv * 1.7 + vec2(5.2, -tw * 0.8))
+    swirl(uv * 0.8 + vec2(0.0, tw)),
+    swirl(uv * 0.8 + vec2(5.2, -tw * 0.85))
   );
-  vec2 p = uv + (warp - 0.5) * 0.75;
+  vec2 p = uv + (warp - 0.5) * 0.5;
 
-  float field = blobs(p, t);
-  float halo = smoothstep(0.12, 0.9, field);
-  float core = smoothstep(0.6, 1.7, field);
-  float grain = fbm(p * 2.4 + vec2(tw * 1.6, -tw * 1.1));
+  vec2 blob = blobs(p, t);
+  float field = blob.x;
 
-  float mask = clamp(halo * 0.8 + core * 0.5, 0.0, 1.0);
-  mask *= 0.72 + 0.56 * grain;
-  mask *= mix(0.55, 1.0, smoothstep(1.7, 0.25, length(uv)));
+  const float level = 0.62;
+  float aa = max(fwidth(field) * 1.2, 0.001);
 
-  vec3 color = mix(uBackground, uAccent, clamp(mask * uIntensity, 0.0, 1.0));
-  color = mix(color, clamp(uAccent * 1.3, 0.0, 1.0), core * 0.28 * uIntensity);
+  float shape = smoothstep(level - aa, level + aa, field);
+  float glow = smoothstep(level - 0.5, level, field);
+  float depth = smoothstep(level, level + 0.85, field);
+  float rim = shape - smoothstep(level + 0.09, level + 0.24, field);
+
+  float blend = clamp(blob.y / max(field, 0.0001), 0.0, 1.0);
+  vec3 accent = mix(uAccent, uAccentAlt, blend);
+  vec3 core = clamp(accent * 1.35, 0.0, 1.0);
+
+  vec3 color = uBackground;
+  color = mix(color, accent, glow * 0.22 * uIntensity);
+  color = mix(color, accent, shape * uIntensity);
+  color = mix(color, core, shape * depth * 0.5 * uIntensity);
+  color = mix(color, core, rim * 0.2 * uIntensity);
+
+  float falloff = mix(0.7, 1.0, smoothstep(1.55, 0.2, length(uv)));
+  color = mix(uBackground, color, falloff);
 
   float dither = (hash(gl_FragCoord.xy + fract(uTime)) - 0.5) / 255.0;
 
@@ -191,11 +199,13 @@ function ShaderBackground({ speed = 1 }: ShaderBackgroundProps) {
       scroll: gl.getUniformLocation(program, 'uScroll'),
       background: gl.getUniformLocation(program, 'uBackground'),
       accent: gl.getUniformLocation(program, 'uAccent'),
+      accentAlt: gl.getUniformLocation(program, 'uAccentAlt'),
       intensity: gl.getUniformLocation(program, 'uIntensity'),
     };
 
     let background = readChannels(root, '--bg-rgb', [0.04, 0.04, 0.04]);
     let accent = readChannels(root, '--shader-accent-rgb', [0.25, 0.42, 0.5]);
+    let accentAlt = readChannels(root, '--shader-accent-alt-rgb', [0.45, 0.28, 0.48]);
     let intensity = readNumber(root, '--shader-intensity', 0.55);
 
     const mouse = { x: 0, y: 0 };
@@ -218,6 +228,12 @@ function ShaderBackground({ speed = 1 }: ShaderBackgroundProps) {
         background[2],
       );
       gl.uniform3f(uniforms.accent, accent[0], accent[1], accent[2]);
+      gl.uniform3f(
+        uniforms.accentAlt,
+        accentAlt[0],
+        accentAlt[1],
+        accentAlt[2],
+      );
       gl.uniform1f(uniforms.intensity, intensity);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     };
@@ -280,6 +296,7 @@ function ShaderBackground({ speed = 1 }: ShaderBackgroundProps) {
     const themeObserver = new MutationObserver(() => {
       background = readChannels(root, '--bg-rgb', background);
       accent = readChannels(root, '--shader-accent-rgb', accent);
+      accentAlt = readChannels(root, '--shader-accent-alt-rgb', accentAlt);
       intensity = readNumber(root, '--shader-intensity', intensity);
       if (prefersReducedMotion) draw();
     });

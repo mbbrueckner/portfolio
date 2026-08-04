@@ -29,6 +29,7 @@
 
   /* Shader background */
   --shader-accent-rgb: 58, 104, 122;
+  --shader-accent-alt-rgb: 118, 68, 116;
   --shader-intensity: 0.62;
 
   /* Semantic colors */
@@ -72,6 +73,7 @@
   --fg-rgb: 30, 30, 30;
 
   --shader-accent-rgb: 176, 198, 208;
+  --shader-accent-alt-rgb: 208, 186, 206;
   --shader-intensity: 0.85;
 
   --color-text-strong: rgba(12, 12, 12, 0.95);
