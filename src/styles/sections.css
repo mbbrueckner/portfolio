@@ -35,12 +35,3 @@
   background: var(--color-rule);
 }
 
-.panel {
-  border: 1px solid var(--glass-border);
-  border-radius: 18px;
-  background-color: var(--glass-bg);
-  background-image: var(--glass-sheen);
-  box-shadow: var(--glass-shadow), var(--glass-highlight);
-  -webkit-backdrop-filter: blur(22px) saturate(160%);
-  backdrop-filter: blur(22px) saturate(160%);
-}
