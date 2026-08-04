@@ -34,7 +34,7 @@
   --shader-intensity: 0.72;
   --shader-core-boost: 1.35;
   /* Veil over the shader: text sits on moving color, so this buys contrast. */
-  --shader-veil: 0.6;
+  --shader-veil: 0;
 
   /* Semantic colors */
   --color-bg: rgb(var(--bg-rgb));
@@ -82,7 +82,7 @@
   --shader-accent-alt-rgb: 152, 82, 166;
   --shader-intensity: 0.95;
   --shader-core-boost: 0.82;
-  --shader-veil: 0.6;
+  --shader-veil: 0;
 
   --color-text-strong: rgba(8, 8, 8, 0.98);
   --color-text: rgba(24, 24, 24, 0.95);
