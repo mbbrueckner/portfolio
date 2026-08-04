@@ -69,6 +69,17 @@ function ProjectItem({
               transition={{ duration: 0.55, ease }}
             >
               <div className="project__card-body">
+                {project.image && (
+                  <img
+                    className="project__image"
+                    src={project.image.src}
+                    width={project.image.width}
+                    height={project.image.height}
+                    alt={project.image.alt[locale]}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                )}
                 <p className="project__description">
                   {project.description[locale]}
                 </p>

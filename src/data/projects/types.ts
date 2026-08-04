@@ -1,4 +1,4 @@
-import type { Localized } from '../types';
+import type { ContentImage, Localized } from '../types';
 
 export interface Project {
   id: string;
@@ -9,4 +9,5 @@ export interface Project {
   stack: readonly string[];
   tags: Localized;
   description: Localized;
+  image?: ContentImage;
 }

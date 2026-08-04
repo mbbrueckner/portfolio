@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import { fadeUp, stagger } from '../animations';
-import { aboutBio, aboutStats } from '../data/about';
+import { aboutBio, aboutPortrait, aboutStats } from '../data/about';
 import { useLocale } from '../hooks/useLocale';
 
 import '../styles/About.css';
@@ -28,7 +28,21 @@ function About() {
         <div className="section-head__rule" />
       </motion.div>
 
-      <div className="about__grid">
+      <div
+        className={`about__grid${aboutPortrait ? ' has-portrait' : ''}`}
+      >
+        {aboutPortrait && (
+          <motion.img
+            className="about__portrait"
+            src={aboutPortrait.src}
+            width={aboutPortrait.width}
+            height={aboutPortrait.height}
+            alt={aboutPortrait.alt[locale]}
+            loading="lazy"
+            decoding="async"
+            variants={fadeUp}
+          />
+        )}
         <motion.p className="about__bio" variants={fadeUp}>
           {aboutBio[locale]}
         </motion.p>

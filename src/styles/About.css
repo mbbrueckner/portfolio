@@ -9,6 +9,19 @@
   max-width: var(--content-max-width);
 }
 
+.about__grid.has-portrait {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 56px;
+}
+
+.about__portrait {
+  display: block;
+  align-self: start;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
 .about__bio {
   max-width: 24ch;
   font-family: var(--font-sans);
@@ -59,9 +72,14 @@
 }
 
 @media (max-width: 720px) {
-  .about__grid {
+  .about__grid,
+  .about__grid.has-portrait {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  .about__portrait {
+    max-width: 260px;
   }
 
   .about__bio {

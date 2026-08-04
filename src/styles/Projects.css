@@ -165,6 +165,15 @@
   padding-top: 22px;
 }
 
+.project__image {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
 .project__description {
   max-width: 60ch;
   font-family: var(--font-sans);

@@ -1,4 +1,4 @@
-import type { Localized } from './types';
+import type { ContentImage, Localized } from './types';
 
 export interface AboutStat {
   id: string;
@@ -11,6 +11,12 @@ export const aboutBio: Localized = {
   de: 'Platzhaltertext. Hier folgt eine kurze Beschreibung.',
   en: 'Placeholder text. A short description goes here.',
 };
+
+// To add a portrait, drop the file in `src/assets/` and import it:
+//   import portrait from '../assets/portrait.webp';
+// then replace `null` with:
+//   { src: portrait, width: 800, height: 1000, alt: { de: '...', en: '...' } }
+export const aboutPortrait: ContentImage | null = null;
 
 export const aboutStats: readonly AboutStat[] = [
   {
