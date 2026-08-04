@@ -1,15 +1,46 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Mika Brückner</title>
+    <meta
+      name="description"
+      content="Portfolio von Mika Brückner – Student, Developer und Läufer."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mika Brückner" />
+    <meta
+      property="og:description"
+      content="Portfolio von Mika Brückner – Student, Developer und Läufer."
+    />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+
+    <meta
+      name="theme-color"
+      content="#0a0a0a"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#f5f5f5"
+      media="(prefers-color-scheme: light)"
+    />
+
     <script>
       (function () {
-        var theme = localStorage.getItem('theme');
-        document.documentElement.dataset.theme =
-          theme === 'light' ? 'light' : 'dark';
+        var stored = localStorage.getItem('theme');
+        if (stored !== 'light' && stored !== 'dark') {
+          stored = window.matchMedia('(prefers-color-scheme: light)').matches
+            ? 'light'
+            : 'dark';
+        }
+        document.documentElement.dataset.theme = stored;
       })();
     </script>
   </head>

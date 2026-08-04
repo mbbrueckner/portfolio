@@ -7,7 +7,10 @@ export const THEME_STORAGE_KEY = 'theme';
 
 function getInitialTheme(): Theme {
   const stored = localStorage.getItem(THEME_STORAGE_KEY);
-  return stored === 'light' || stored === 'dark' ? stored : 'dark';
+  if (stored === 'light' || stored === 'dark') return stored;
+  return window.matchMedia('(prefers-color-scheme: light)').matches
+    ? 'light'
+    : 'dark';
 }
 
 function ThemeToggle() {
@@ -17,8 +20,23 @@ function ThemeToggle() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    localStorage.setItem(THEME_STORAGE_KEY, theme);
   }, [theme]);
+
+  // Follow the system setting until an explicit choice is stored.
+  useEffect(() => {
+    if (localStorage.getItem(THEME_STORAGE_KEY)) return;
+    const query = window.matchMedia('(prefers-color-scheme: light)');
+    const onChange = (event: MediaQueryListEvent) => {
+      setTheme(event.matches ? 'light' : 'dark');
+    };
+    query.addEventListener('change', onChange);
+    return () => query.removeEventListener('change', onChange);
+  }, []);
+
+  const choose = (next: Theme) => {
+    localStorage.setItem(THEME_STORAGE_KEY, next);
+    setTheme(next);
+  };
 
   return (
     <button
@@ -27,7 +45,7 @@ function ThemeToggle() {
       aria-checked={isDark}
       aria-label={t('controls.theme')}
       className={`switch${isDark ? ' is-on' : ''}`}
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      onClick={() => choose(isDark ? 'light' : 'dark')}
     >
       <span className="switch__knob" aria-hidden="true" />
     </button>
