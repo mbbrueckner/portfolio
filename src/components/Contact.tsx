@@ -19,7 +19,10 @@ function Contact() {
       viewport={{ amount: 0.2 }}
     >
       <motion.div className="section-head" variants={fadeUp}>
-        <p className="section-head__eyebrow">{t('contact.eyebrow')}</p>
+        <div className="section-head__top">
+          <span className="section-head__index">03</span>
+          <p className="section-head__eyebrow">{t('contact.eyebrow')}</p>
+        </div>
         <div className="section-head__rule" />
       </motion.div>
 
