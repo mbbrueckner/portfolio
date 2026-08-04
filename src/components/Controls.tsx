@@ -17,7 +17,7 @@ function Controls() {
       className="controls"
       layout
       style={{ borderRadius: 999 }}
-      transition={{ duration: 0.6, ease }}
+      transition={{ duration: 1.2, ease }}
     >
       <Nav isVisible={isNavVisible} />
       <motion.div className="controls__group" layout>

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ease } from '../animations';
+import { scrollToSection } from '../scroll';
 
 import '../styles/Nav.css';
 
@@ -21,15 +22,15 @@ const navVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: 0.45, ease, delayChildren: 0.1, staggerChildren: 0.05 },
+    transition: { duration: 0.9, ease, delayChildren: 0.4, staggerChildren: 0.1 },
   },
-  exit: { opacity: 0, transition: { duration: 0.25, ease } },
+  exit: { opacity: 0, transition: { duration: 0.45, ease } },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, x: 10 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.45, ease } },
-  exit: { opacity: 0, transition: { duration: 0.15 } },
+  hidden: { opacity: 0, x: 12 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease } },
+  exit: { opacity: 0, transition: { duration: 0.25 } },
 };
 
 function Nav({ isVisible }: NavProps) {
@@ -88,6 +89,11 @@ function Nav({ isVisible }: NavProps) {
                       className={`nav__link${isActive ? ' is-active' : ''}`}
                       href={`#${item.id}`}
                       aria-current={isActive ? 'true' : undefined}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        scrollToSection(item.id);
+                        history.replaceState(null, '', `#${item.id}`);
+                      }}
                     >
                       {isActive && (
                         <motion.span
