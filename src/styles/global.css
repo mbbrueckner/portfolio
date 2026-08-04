@@ -3,9 +3,9 @@
   --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-mono: 'Courier New', Courier, monospace;
 
-  --fw-thin: 100;
-  --fw-extralight: 200;
-  --fw-light: 300;
+  --fw-thin: 200;
+  --fw-extralight: 300;
+  --fw-light: 400;
 
   /* Font sizes */
   --fs-hero: clamp(24px, 2.9vw, 38px);
@@ -13,9 +13,9 @@
   --fs-section-heading: clamp(16px, 2.2vw, 32px);
   --fs-contact: clamp(20px, 2.8vw, 44px);
   --fs-body: clamp(14px, 1.3vw, 19px);
-  --fs-meta: clamp(9px, 0.85vw, 12px);
-  --fs-label: 9px;
-  --fs-index: 10px;
+  --fs-meta: clamp(10px, 0.9vw, 13px);
+  --fs-label: 10px;
+  --fs-index: 11px;
 
   /* Letter spacing */
   --ls-hero: 0.16em;
@@ -29,10 +29,10 @@
   --fg-rgb: 215, 215, 215;
 
   /* Shader background */
-  --shader-accent-rgb: 34, 132, 166;
-  --shader-accent-alt-rgb: 146, 54, 148;
+  --shader-accent-rgb: 20, 76, 98;
+  --shader-accent-alt-rgb: 98, 37, 100;
   --shader-intensity: 0.72;
-  --shader-core-boost: 1.35;
+  --shader-core-boost: 1.12;
   /* Veil over the shader: text sits on moving color, so this buys contrast. */
   --shader-veil: 0;
 
@@ -78,10 +78,10 @@
   --bg-rgb: 245, 245, 245;
   --fg-rgb: 30, 30, 30;
 
-  --shader-accent-rgb: 62, 142, 182;
-  --shader-accent-alt-rgb: 152, 82, 166;
+  --shader-accent-rgb: 126, 196, 228;
+  --shader-accent-alt-rgb: 206, 168, 216;
   --shader-intensity: 0.95;
-  --shader-core-boost: 0.82;
+  --shader-core-boost: 1.06;
   --shader-veil: 0;
 
   --color-text-strong: rgba(8, 8, 8, 0.98);
