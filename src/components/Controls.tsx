@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 import { ease } from '../animations';
+import { useScrolledPastHero } from '../hooks/useScrolledPastHero';
 
 import LanguageToggle from './LanguageToggle';
 import Nav from './Nav';
@@ -9,13 +10,16 @@ import ThemeToggle from './ThemeToggle';
 import '../styles/Controls.css';
 
 function Controls() {
+  const isNavVisible = useScrolledPastHero();
+
   return (
     <motion.div
       className="controls"
       layout
-      transition={{ duration: 0.55, ease }}
+      style={{ borderRadius: 999 }}
+      transition={{ duration: 0.6, ease }}
     >
-      <Nav />
+      <Nav isVisible={isNavVisible} />
       <motion.div className="controls__group" layout>
         <LanguageToggle />
       </motion.div>

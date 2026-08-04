@@ -6,6 +6,10 @@ import { ease } from '../animations';
 
 import '../styles/Nav.css';
 
+interface NavProps {
+  isVisible: boolean;
+}
+
 const items = [
   { id: 'top', index: '00', labelKey: 'hero.eyebrow' },
   { id: 'projects', index: '01', labelKey: 'projects.eyebrow' },
@@ -13,29 +17,23 @@ const items = [
   { id: 'contact', index: '03', labelKey: 'contact.eyebrow' },
 ] as const;
 
-// Separate thresholds so scrolling around the hero edge cannot flicker the bar.
-const SHOW_AT = 0.72;
-const HIDE_AT = 0.55;
-
 const navVariants: Variants = {
-  hidden: { opacity: 0, x: 16 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    x: 0,
-    transition: { duration: 0.55, ease, staggerChildren: 0.06 },
+    transition: { duration: 0.45, ease, delayChildren: 0.1, staggerChildren: 0.05 },
   },
-  exit: { opacity: 0, x: 16, transition: { duration: 0.35, ease } },
+  exit: { opacity: 0, transition: { duration: 0.25, ease } },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: -5 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease } },
-  exit: { opacity: 0, transition: { duration: 0.2 } },
+  hidden: { opacity: 0, x: 10 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.45, ease } },
+  exit: { opacity: 0, transition: { duration: 0.15 } },
 };
 
-function Nav() {
+function Nav({ isVisible }: NavProps) {
   const { t } = useTranslation();
-  const [isVisible, setIsVisible] = useState(false);
   const [activeId, setActiveId] = useState<string>(items[0].id);
 
   useEffect(() => {
@@ -43,11 +41,6 @@ function Nav() {
 
     const update = () => {
       frame = 0;
-      const progress = window.scrollY / window.innerHeight;
-      setIsVisible((wasVisible) =>
-        wasVisible ? progress > HIDE_AT : progress > SHOW_AT,
-      );
-
       const center = window.innerHeight / 2;
       let current: string = items[0].id;
       for (const item of items) {
@@ -80,7 +73,6 @@ function Nav() {
         <motion.div
           key="nav"
           className="nav"
-          layout
           variants={navVariants}
           initial="hidden"
           animate="visible"
