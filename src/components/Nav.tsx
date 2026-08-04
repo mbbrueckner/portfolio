@@ -22,14 +22,14 @@ const navVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: 0.9, ease, delayChildren: 0.4, staggerChildren: 0.1 },
+    transition: { duration: 1.3, ease, delayChildren: 0.7, staggerChildren: 0.13 },
   },
-  exit: { opacity: 0, transition: { duration: 0.45, ease } },
+  exit: { opacity: 0, transition: { duration: 0.5, ease } },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, x: 12 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease } },
+  hidden: { opacity: 0, x: 14 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.85, ease } },
   exit: { opacity: 0, transition: { duration: 0.25 } },
 };
 
@@ -49,6 +49,14 @@ function Nav({ isVisible }: NavProps) {
         if (!element) continue;
         if (element.getBoundingClientRect().top <= center) current = item.id;
       }
+
+      // The last section is too short to cross the center on tall viewports,
+      // so hitting the bottom of the page always selects it.
+      const bottom = window.scrollY + window.innerHeight;
+      if (bottom >= document.documentElement.scrollHeight - 2) {
+        current = items[items.length - 1].id;
+      }
+
       setActiveId(current);
     };
 
