@@ -26,7 +26,10 @@
   /* Color channels */
   --bg-rgb: 10, 10, 10;
   --fg-rgb: 215, 215, 215;
-  --ascii-rgb: 215, 215, 215;
+
+  /* Shader background */
+  --shader-accent-rgb: 58, 104, 122;
+  --shader-intensity: 0.62;
 
   /* Semantic colors */
   --color-bg: rgb(var(--bg-rgb));
@@ -67,7 +70,9 @@
 [data-theme='light'] {
   --bg-rgb: 245, 245, 245;
   --fg-rgb: 30, 30, 30;
-  --ascii-rgb: 40, 40, 40;
+
+  --shader-accent-rgb: 176, 198, 208;
+  --shader-intensity: 0.85;
 
   --color-text-strong: rgba(12, 12, 12, 0.95);
   --color-text: rgba(28, 28, 28, 0.9);

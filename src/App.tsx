@@ -1,16 +1,16 @@
 import { MotionConfig } from 'framer-motion';
 
 import About from './components/About';
-import AsciiBackground from './components/AsciiBackground';
 import Contact from './components/Contact';
 import Controls from './components/Controls';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
+import ShaderBackground from './components/ShaderBackground';
 
 function App() {
   return (
     <MotionConfig reducedMotion="user">
-      <AsciiBackground />
+      <ShaderBackground />
       <Controls />
       <main className="content">
         <Hero />
