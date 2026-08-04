@@ -1,5 +1,6 @@
 .section {
   padding: 120px var(--section-padding-x) 100px;
+  scroll-margin-top: 96px;
 }
 
 .section-head {

@@ -10,6 +10,7 @@ function Hero() {
 
   return (
     <motion.section
+      id="top"
       className="hero"
       variants={stagger}
       initial="hidden"
