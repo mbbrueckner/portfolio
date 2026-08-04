@@ -9,6 +9,8 @@ import ThemeToggle from './ThemeToggle';
 
 import '../styles/Controls.css';
 
+const pillTransition = { duration: 1.8, ease };
+
 function Controls() {
   const isNavVisible = useScrolledPastHero();
 
@@ -17,14 +19,26 @@ function Controls() {
       className="controls"
       layout
       style={{ borderRadius: 999 }}
-      transition={{ duration: 1.2, ease }}
+      transition={pillTransition}
     >
       <Nav isVisible={isNavVisible} />
-      <motion.div className="controls__group" layout>
+      <motion.div
+        className="controls__group"
+        layout
+        transition={pillTransition}
+      >
         <LanguageToggle />
       </motion.div>
-      <motion.span className="controls__divider" layout />
-      <motion.div className="controls__group" layout>
+      <motion.span
+        className="controls__divider"
+        layout
+        transition={pillTransition}
+      />
+      <motion.div
+        className="controls__group"
+        layout
+        transition={pillTransition}
+      >
         <ThemeToggle />
       </motion.div>
     </motion.div>
