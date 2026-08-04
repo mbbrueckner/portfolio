@@ -29,12 +29,6 @@ function ThemeToggle() {
       className={`switch${isDark ? ' is-on' : ''}`}
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
     >
-      <span className="switch__glyph" aria-hidden="true">
-        ☀
-      </span>
-      <span className="switch__glyph" aria-hidden="true">
-        ☾
-      </span>
       <span className="switch__knob" aria-hidden="true" />
     </button>
   );
