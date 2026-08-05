@@ -50,7 +50,7 @@ function About() {
           {aboutStats.map((stat) => (
             <motion.div className="about__stat" key={stat.id} variants={fadeUp}>
               <dt className="about__stat-label">{stat.label[locale]}</dt>
-              <dd className="about__stat-value">{stat.value}</dd>
+              <dd className="about__stat-value">{stat.value[locale]}</dd>
             </motion.div>
           ))}
         </motion.dl>

@@ -5,11 +5,18 @@ export interface SocialLink {
   url: string;
 }
 
-// Placeholder contact details. Replace with the real address and profile URLs.
-export const contactEmail = 'mail@example.com';
+export const contactEmail = 'mikabenbrueckner@icloud.com';
 
-export const socialLinks: readonly SocialLink[] = [
-  { id: 'github', label: 'GitHub', url: 'https://example.com' },
-  { id: 'linkedin', label: 'LinkedIn', url: 'https://example.com' },
-  { id: 'instagram', label: 'Instagram', url: 'https://example.com' },
-];
+export const socialLinks = [
+  { id: 'github', label: 'GitHub', url: 'https://github.com/mbbrueckner' },
+  {
+    id: 'linkedin',
+    label: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/mika-brueckner',
+  },
+  {
+    id: 'instagram',
+    label: 'Instagram',
+    url: 'https://www.instagram.com/mikab3n/',
+  },
+] as const satisfies readonly SocialLink[];
