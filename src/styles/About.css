@@ -54,11 +54,17 @@ html:lang(en) .about__bio {
   quotes: '“' '”' '‘' '’';
 }
 
-.about__bio::before {
+.about__bio p + p {
+  margin-top: 1.1em;
+}
+
+/* Opens on the first paragraph and closes on the last, so both paragraphs sit
+   inside one quotation rather than each carrying its own. */
+.about__bio p:first-child::before {
   content: open-quote;
 }
 
-.about__bio::after {
+.about__bio p:last-child::after {
   content: close-quote;
 }
 

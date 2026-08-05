@@ -8,10 +8,17 @@ export interface AboutStat {
   value: Localized;
 }
 
-export const aboutBio: Localized = {
-  de: 'Ich studiere Informatik in Jena und will meistens wissen, wie etwas eine Ebene tiefer funktioniert. Manches baue ich deshalb einmal selbst nach, bis ich es verstanden habe. Besonders reizen mich Aufgaben, bei denen Rechenzeit und Genauigkeit gegeneinander stehen. Den Ausgleich dazu finde ich in der Natur, auf dem Rad oder zu Fuß.',
-  en: 'I study computer science in Jena, and I usually want to know how something works one layer further down. Some things I rebuild myself until I have understood them. I am drawn to problems where compute time and accuracy pull against each other. My counterweight to that is being outdoors, on the bike or on foot.',
-};
+// One entry per paragraph.
+export const aboutBio: readonly Localized[] = [
+  {
+    de: 'Ich studiere Informatik in Jena und kann selten etwas einfach so hinnehmen, ohne zu wissen, wie es eine Ebene tiefer funktioniert. Besonders reizen mich Probleme, bei denen man Rechenzeit gegen Genauigkeit abwägen muss – dieser ständige Kompromiss zwischen ‚schnell genug‘ und ‚genau genug‘ fasziniert mich einfach.',
+    en: 'I study computer science in Jena, and I can rarely take something at face value without knowing how it works one layer further down. I am drawn to problems where you have to weigh compute time against accuracy – that constant compromise between ‘fast enough’ and ‘accurate enough’ is what fascinates me.',
+  },
+  {
+    de: 'Den Ausgleich dazu finde ich draußen: auf dem Rad, zu Fuß, einfach in Bewegung und ohne Bildschirm. Das hilft mir meistens mehr beim Denken als noch eine Stunde vor dem Code zu sitzen.',
+    en: 'My counterweight to that is being outdoors: on the bike, on foot, simply moving and away from a screen. That usually helps me think more than another hour in front of the code.',
+  },
+];
 
 export const aboutPortrait: ContentImage | null = {
   src: portrait,

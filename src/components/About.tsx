@@ -54,9 +54,11 @@ function About() {
               variants={fadeIn}
             />
           )}
-          <motion.p className="about__bio" variants={fadeIn}>
-            {aboutBio[locale]}
-          </motion.p>
+          <motion.div className="about__bio" variants={fadeIn}>
+            {aboutBio.map((paragraph, index) => (
+              <p key={index}>{paragraph[locale]}</p>
+            ))}
+          </motion.div>
           <motion.dl className="about__stats" variants={stagger}>
             {aboutStats.map((stat) => (
               <motion.div
