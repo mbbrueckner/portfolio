@@ -9,7 +9,7 @@
 
   /* Font sizes */
   --fs-hero: clamp(24px, 2.9vw, 38px);
-  --fs-statement: clamp(19px, 2.3vw, 31px);
+  --fs-statement: clamp(16px, 1.5vw, 21px);
   --fs-section-heading: clamp(16px, 2.2vw, 32px);
   --fs-contact: clamp(20px, 2.8vw, 44px);
   --fs-body: clamp(14px, 1.3vw, 19px);

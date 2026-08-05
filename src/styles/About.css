@@ -5,13 +5,21 @@
 .about__grid {
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
-  gap: 72px;
+  gap: 64px;
   max-width: var(--content-max-width);
+  padding: 40px 44px;
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  background-color: var(--glass-bg);
+  background-image: var(--glass-sheen);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
 }
 
 .about__grid.has-portrait {
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr) minmax(0, 1fr);
-  gap: 56px;
+  gap: 48px;
 }
 
 .about__portrait {
@@ -23,11 +31,11 @@
 }
 
 .about__bio {
-  max-width: 30ch;
+  max-width: 46ch;
   font-family: var(--font-sans);
   font-size: var(--fs-statement);
-  font-weight: var(--fw-thin);
-  line-height: 1.5;
+  font-weight: var(--fw-extralight);
+  line-height: 1.65;
   letter-spacing: 0.01em;
   color: var(--color-text-strong);
 }
@@ -75,7 +83,8 @@
   .about__grid,
   .about__grid.has-portrait {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 36px;
+    padding: 28px 24px;
   }
 
   .about__portrait {
