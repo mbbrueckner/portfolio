@@ -8,10 +8,9 @@ export interface AboutStat {
   value: Localized;
 }
 
-// Draft - rewrite this in your own words.
 export const aboutBio: Localized = {
-  de: 'Ich studiere Informatik in Jena und will eigentlich immer wissen, wie etwas eine Ebene tiefer funktioniert. Deshalb schreibe ich Dinge lieber selbst, als eine fertige Bibliothek einzubinden — einen Tsunami-Löser, der im Browser läuft, neuronale Netze in C++, einen API-Client für die Bahn. Die Projekte, die mir am meisten Spaß machen, entstehen aus eigenen Problemen: Aeolus zum Beispiel, weil ich vor der Ausfahrt wissen wollte, ob sich die Runde bei dem Wetter überhaupt lohnt.',
-  en: 'I study computer science in Jena, and I usually want to know how something works one layer further down. That is why I would rather write things myself than pull in a finished library — a tsunami solver that runs in the browser, neural networks in C++, an API client for Deutsche Bahn. The projects I enjoy most come out of my own problems: Aeolus, for instance, because I wanted to know whether a ride was worth it in that weather.',
+  de: 'Ich studiere Informatik in Jena und will meistens wissen, wie etwas eine Ebene tiefer funktioniert. Deshalb schreibe ich Dinge lieber selbst, als eine fertige Bibliothek einzubinden: Es dauert länger, aber danach weiß ich, warum etwas schnell ist oder eben nicht. Besonders reizen mich Aufgaben, bei denen Rechenzeit und Genauigkeit gegeneinander stehen. Den Ausgleich dazu finde ich im Sport, wo dieselbe Geduld zählt und der Fortschritt sich schlechter wegdiskutieren lässt.',
+  en: 'I study computer science in Jena, and I usually want to know how something works one layer further down. That is why I would rather write things myself than pull in a finished library: it takes longer, but afterwards I know why something is fast, or why it is not. I am drawn to problems where compute time and accuracy pull against each other. Sport is my counterweight, where the same patience counts and progress is harder to argue away.',
 };
 
 export const aboutPortrait: ContentImage | null = {
