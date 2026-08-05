@@ -9,8 +9,8 @@ export interface AboutStat {
 }
 
 export const aboutBio: Localized = {
-  de: 'Ich studiere Informatik in Jena und will meistens wissen, wie etwas eine Ebene tiefer funktioniert. Mich interessiert weniger, dass eine Bibliothek ein Problem löst, als wie sie es tut und warum das schnell ist oder eben nicht. Manches baue ich deshalb einmal selbst nach, bis ich es verstanden habe. Besonders reizen mich Aufgaben, bei denen Rechenzeit und Genauigkeit gegeneinander stehen. Den Ausgleich dazu finde ich in der Natur, auf dem Rad oder zu Fuß.',
-  en: 'I study computer science in Jena, and I usually want to know how something works one layer further down. What interests me is less that a library solves a problem than how it does it, and why that is fast or why it is not. Some things I rebuild myself until I have understood them. I am drawn to problems where compute time and accuracy pull against each other. My counterweight to that is being outdoors, on the bike or on foot.',
+  de: 'Ich studiere Informatik in Jena und will meistens wissen, wie etwas eine Ebene tiefer funktioniert. Manches baue ich deshalb einmal selbst nach, bis ich es verstanden habe. Besonders reizen mich Aufgaben, bei denen Rechenzeit und Genauigkeit gegeneinander stehen. Den Ausgleich dazu finde ich in der Natur, auf dem Rad oder zu Fuß.',
+  en: 'I study computer science in Jena, and I usually want to know how something works one layer further down. Some things I rebuild myself until I have understood them. I am drawn to problems where compute time and accuracy pull against each other. My counterweight to that is being outdoors, on the bike or on foot.',
 };
 
 export const aboutPortrait: ContentImage | null = {

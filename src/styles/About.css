@@ -45,6 +45,21 @@
   line-height: 1.65;
   letter-spacing: 0.01em;
   color: var(--color-text-strong);
+  /* German lays quotes out differently than English; i18n keeps <html lang>
+     in sync, so the marks follow the active language. */
+  quotes: '„' '“' '‚' '‘';
+}
+
+html:lang(en) .about__bio {
+  quotes: '“' '”' '‘' '’';
+}
+
+.about__bio::before {
+  content: open-quote;
+}
+
+.about__bio::after {
+  content: close-quote;
 }
 
 .about__stats {
