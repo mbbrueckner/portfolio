@@ -64,15 +64,8 @@
 }
 
 @media (max-width: 720px) {
+  /* Nav is not rendered at this width; see COMPACT_QUERY in Controls.tsx. */
   .nav {
-    gap: 12px;
-  }
-
-  .nav__link {
-    padding: 7px 9px;
-  }
-
-  .nav__label {
     display: none;
   }
 }
