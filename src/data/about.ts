@@ -30,8 +30,8 @@ export const aboutStats: readonly AboutStat[] = [
     value: 'Placeholder',
   },
   {
-    id: 'pb',
-    label: { de: '5k Bestzeit', en: '5k personal best' },
+    id: 'focus',
+    label: { de: 'Fokus', en: 'Focus' },
     value: 'Placeholder',
   },
   {
