@@ -72,6 +72,9 @@
   --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.14);
   --glass-filter: blur(11px) saturate(135%);
 
+  /* Matches `ease` in animations.ts so CSS and Framer share one motion feel. */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
   /* Layout */
   --section-padding-x: 10vw;
   --content-max-width: 960px;

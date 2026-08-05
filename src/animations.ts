@@ -37,3 +37,12 @@ export const stagger: Variants = {
     transition: { staggerChildren: 0.08, delayChildren: 0.05 },
   },
 };
+
+// Wider spacing than `stagger`: list rows are large, so they need room to read
+// as a cascade rather than as one block.
+export const listStagger: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.13, delayChildren: 0.18 },
+  },
+};

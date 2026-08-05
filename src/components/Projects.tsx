@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-import { ease, fadeUp, stagger } from '../animations';
+import { ease, fadeUp, listStagger, stagger } from '../animations';
 import { projects } from '../data/projects';
 import { useActiveOnScroll } from '../hooks/useActiveOnScroll';
 import { useLocale } from '../hooks/useLocale';
@@ -30,10 +30,11 @@ function ProjectItem({
   const cardId = `${project.id}-card`;
 
   return (
-    <li
+    <motion.li
       className={`project${isActive ? ' is-active' : ''}${
         isPinned ? ' is-pinned' : ''
       }`}
+      variants={fadeUp}
     >
       <div className="project__inner">
         <button
@@ -64,9 +65,22 @@ function ProjectItem({
               id={cardId}
               className="project__card"
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.55, ease }}
+              animate={{
+                opacity: 1,
+                height: 'auto',
+                transition: {
+                  height: { duration: 0.7, ease },
+                  opacity: { duration: 0.5, ease, delay: 0.18 },
+                },
+              }}
+              exit={{
+                opacity: 0,
+                height: 0,
+                transition: {
+                  height: { duration: 0.6, ease, delay: 0.08 },
+                  opacity: { duration: 0.25, ease },
+                },
+              }}
             >
               <div className="project__card-body">
                 {project.image && (
@@ -103,7 +117,7 @@ function ProjectItem({
           )}
         </AnimatePresence>
       </div>
-    </li>
+    </motion.li>
   );
 }
 
@@ -129,7 +143,11 @@ function Projects() {
         <div className="section-head__rule" />
       </motion.div>
 
-      <ul className="projects__list" ref={containerRef}>
+      <motion.ul
+        className="projects__list"
+        ref={containerRef}
+        variants={listStagger}
+      >
         {projects.map((project, index) => (
           <ProjectItem
             key={project.id}
@@ -140,7 +158,7 @@ function Projects() {
             onToggle={togglePinned}
           />
         ))}
-      </ul>
+      </motion.ul>
     </motion.section>
   );
 }

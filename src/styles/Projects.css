@@ -14,13 +14,13 @@
   border-bottom-color: var(--color-border);
   border-radius: 18px;
   transition:
-    padding 0.6s ease,
-    background-color 0.6s ease,
-    background-image 0.6s ease,
-    border-color 0.6s ease,
-    box-shadow 0.6s ease,
-    -webkit-backdrop-filter 0.6s ease,
-    backdrop-filter 0.6s ease;
+    padding 0.7s var(--ease-soft),
+    background-color 0.7s var(--ease-soft),
+    background-image 0.7s var(--ease-soft),
+    border-color 0.7s var(--ease-soft),
+    box-shadow 0.7s var(--ease-soft),
+    -webkit-backdrop-filter 0.7s var(--ease-soft),
+    backdrop-filter 0.7s var(--ease-soft);
 }
 
 .project.is-active {
@@ -35,13 +35,13 @@
 
 .project__inner {
   transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
+    opacity 0.7s var(--ease-soft),
+    transform 0.7s var(--ease-soft);
 }
 
 .project:not(.is-active) .project__inner {
-  opacity: 0.4;
-  transform: scale(0.97);
+  opacity: 0.52;
+  transform: scale(0.985);
 }
 
 .project.is-active .project__inner {
