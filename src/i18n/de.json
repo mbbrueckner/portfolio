@@ -19,6 +19,8 @@
     "eyebrow": "Über mich"
   },
   "contact": {
-    "eyebrow": "Kontakt"
+    "eyebrow": "Kontakt",
+    "sayHello": "Sag hallo",
+    "emailLabel": "E-Mail"
   }
 }

@@ -8,8 +8,8 @@ export interface AboutStat {
 
 // Draft - rewrite this in your own words.
 export const aboutBio: Localized = {
-  de: 'Informatikstudent in Jena. Ich baue Dinge am liebsten von Grund auf: numerische Simulationen, Bibliotheken und Werkzeuge, die ich selbst brauche.',
-  en: 'Computer science student in Jena. I like building things from the ground up: numerical simulations, libraries, and tools I need myself.',
+  de: 'Informatikstudent in Jena, seit 2024. Mich interessiert, was unter der Oberfläche passiert: numerische Verfahren, systemnahe Programmierung und die Frage, wie man beides schnell bekommt. Am liebsten baue ich Dinge von Grund auf, statt eine fertige Bibliothek einzubinden. Ein Tsunami-Löser, der im Browser läuft, neuronale Netze in C++, kleine Werkzeuge für Probleme, die ich selbst habe.',
+  en: 'Computer science student in Jena, since 2024. I care about what happens beneath the surface: numerical methods, systems programming, and how to make both fast. I would rather build something from the ground up than pull in a finished library. A tsunami solver that runs in the browser, neural networks in C++, small tools for problems I run into myself.',
 };
 
 // To add a portrait, drop the file in `src/assets/` and import it:

@@ -4,7 +4,7 @@
 
 .contact__email {
   display: inline-block;
-  margin-bottom: 48px;
+  margin-bottom: 44px;
   font-family: var(--font-sans);
   font-size: var(--fs-contact);
   font-weight: var(--fw-thin);

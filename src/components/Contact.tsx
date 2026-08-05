@@ -31,10 +31,17 @@ function Contact() {
         href={`mailto:${contactEmail}`}
         variants={fadeUp}
       >
-        {contactEmail}
+        {t('contact.sayHello')}
       </motion.a>
 
       <motion.div className="contact__socials" variants={stagger}>
+        <motion.a
+          className="contact__social"
+          href={`mailto:${contactEmail}`}
+          variants={fadeUp}
+        >
+          {t('contact.emailLabel')}
+        </motion.a>
         {socialLinks.map((link) => (
           <motion.a
             className="contact__social"
