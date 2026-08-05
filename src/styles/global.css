@@ -59,15 +59,18 @@
   --color-border-hover: rgba(255, 255, 255, 0.15);
 
   /* Liquid glass */
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.22);
-  --glass-shadow: 0 18px 55px rgba(0, 0, 0, 0.55);
+  /* Tinted with the background, not white: white would lift the panel above
+     the shader's luminance and drop small text under the contrast threshold. */
+  --glass-bg: rgba(10, 10, 10, 0.22);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-shadow: 0 18px 55px rgba(0, 0, 0, 0.38);
   --glass-sheen: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.12),
-    rgba(255, 255, 255, 0.02) 55%
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.01) 55%
   );
-  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  --glass-filter: blur(11px) saturate(135%);
 
   /* Layout */
   --section-padding-x: 10vw;
@@ -103,15 +106,15 @@
   --color-border: rgba(0, 0, 0, 0.07);
   --color-border-hover: rgba(0, 0, 0, 0.18);
 
-  --glass-bg: rgba(255, 255, 255, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.9);
-  --glass-shadow: 0 18px 55px rgba(0, 0, 0, 0.14);
+  --glass-bg: rgba(255, 255, 255, 0.26);
+  --glass-border: rgba(255, 255, 255, 0.62);
+  --glass-shadow: 0 18px 55px rgba(0, 0, 0, 0.1);
   --glass-sheen: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.25) 55%
+    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0.1) 55%
   );
-  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 /* ---- Reset ---- */
