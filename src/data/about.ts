@@ -9,8 +9,8 @@ export interface AboutStat {
 }
 
 export const aboutBio: Localized = {
-  de: 'Ich studiere Informatik in Jena und will meistens wissen, wie etwas eine Ebene tiefer funktioniert. Deshalb schreibe ich Dinge lieber selbst, als eine fertige Bibliothek einzubinden: Es dauert länger, aber danach weiß ich, warum etwas schnell ist oder eben nicht. Besonders reizen mich Aufgaben, bei denen Rechenzeit und Genauigkeit gegeneinander stehen. Den Ausgleich dazu finde ich im Sport, wo dieselbe Geduld zählt und der Fortschritt sich schlechter wegdiskutieren lässt.',
-  en: 'I study computer science in Jena, and I usually want to know how something works one layer further down. That is why I would rather write things myself than pull in a finished library: it takes longer, but afterwards I know why something is fast, or why it is not. I am drawn to problems where compute time and accuracy pull against each other. Sport is my counterweight, where the same patience counts and progress is harder to argue away.',
+  de: 'Ich studiere Informatik in Jena und will meistens wissen, wie etwas eine Ebene tiefer funktioniert. Mich interessiert weniger, dass eine Bibliothek ein Problem löst, als wie sie es tut und warum das schnell ist oder eben nicht. Manches baue ich deshalb einmal selbst nach, bis ich es verstanden habe. Besonders reizen mich Aufgaben, bei denen Rechenzeit und Genauigkeit gegeneinander stehen. Den Ausgleich dazu finde ich im Sport, wo dieselbe Geduld zählt und der Fortschritt sich schlechter wegdiskutieren lässt.',
+  en: 'I study computer science in Jena, and I usually want to know how something works one layer further down. What interests me is less that a library solves a problem than how it does it, and why that is fast or why it is not. Some things I rebuild myself until I have understood them. I am drawn to problems where compute time and accuracy pull against each other. Sport is my counterweight, where the same patience counts and progress is harder to argue away.',
 };
 
 export const aboutPortrait: ContentImage | null = {
