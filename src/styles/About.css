@@ -17,17 +17,19 @@
   backdrop-filter: var(--glass-filter);
 }
 
-.about__grid.has-portrait {
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr) minmax(0, 1fr);
-  gap: 48px;
+.about__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
 }
 
+/* Cut-out with a transparent background, so no frame and no corner radius. */
 .about__portrait {
   display: block;
-  align-self: start;
   width: 100%;
+  max-width: 250px;
   height: auto;
-  border-radius: 14px;
 }
 
 .about__bio {
@@ -80,15 +82,14 @@
 }
 
 @media (max-width: 720px) {
-  .about__grid,
-  .about__grid.has-portrait {
+  .about__grid {
     grid-template-columns: 1fr;
     gap: 36px;
     padding: 28px 24px;
   }
 
   .about__portrait {
-    max-width: 260px;
+    max-width: 190px;
   }
 
   .about__bio {

@@ -1,3 +1,5 @@
+import portrait from '../assets/portrait.webp';
+
 import type { ContentImage, Localized } from './types';
 
 export interface AboutStat {
@@ -12,11 +14,15 @@ export const aboutBio: Localized = {
   en: 'Computer science student in Jena, since 2024. I care about what happens beneath the surface: numerical methods, systems programming, and how to make both fast. I would rather build something from the ground up than pull in a finished library. A tsunami solver that runs in the browser, neural networks in C++, small tools for problems I run into myself.',
 };
 
-// To add a portrait, drop the file in `src/assets/` and import it:
-//   import portrait from '../assets/portrait.webp';
-// then replace `null` with:
-//   { src: portrait, width: 800, height: 1000, alt: { de: '...', en: '...' } }
-export const aboutPortrait: ContentImage | null = null;
+export const aboutPortrait: ContentImage | null = {
+  src: portrait,
+  width: 700,
+  height: 907,
+  alt: {
+    de: 'Porträt von Mika Brückner',
+    en: 'Portrait of Mika Brückner',
+  },
+};
 
 export const aboutStats: readonly AboutStat[] = [
   {
