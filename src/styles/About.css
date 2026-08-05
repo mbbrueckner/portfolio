@@ -2,10 +2,13 @@
   min-height: 70vh;
 }
 
+/* Row one holds portrait and bio side by side, row two the stats across the
+   full width - three columns would leave neither text nor image enough room. */
 .about__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
-  gap: 64px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 44px;
+  align-items: start;
   max-width: var(--content-max-width);
   padding: 40px 44px;
   border: 1px solid var(--glass-border);
@@ -17,11 +20,8 @@
   backdrop-filter: var(--glass-filter);
 }
 
-.about__intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 30px;
+.about__grid.has-portrait {
+  grid-template-columns: 250px minmax(0, 1fr);
 }
 
 /* Cut-out with a transparent background, so no frame and no corner radius. */
@@ -33,6 +33,7 @@
 }
 
 .about__bio {
+  align-self: center;
   max-width: 46ch;
   font-family: var(--font-sans);
   font-size: var(--fs-statement);
@@ -43,26 +44,19 @@
 }
 
 .about__stats {
-  display: flex;
-  flex-direction: column;
-  align-self: start;
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
   margin: 0;
+  padding-top: 34px;
+  border-top: 1px solid var(--color-border);
 }
 
 .about__stat {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.about__stat:first-child {
-  padding-top: 0;
-}
-
-.about__stat:last-child {
-  border-bottom: 0;
+  gap: 10px;
 }
 
 .about__stat-label {
@@ -78,21 +72,45 @@
   font-family: var(--font-mono);
   font-size: var(--fs-meta);
   letter-spacing: 0.08em;
+  line-height: 1.5;
   color: var(--color-text-strong);
 }
 
+@media (max-width: 900px) {
+  .about__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 32px;
+  }
+}
+
 @media (max-width: 720px) {
-  .about__grid {
+  .about__grid,
+  .about__grid.has-portrait {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 30px;
     padding: 28px 24px;
   }
 
   .about__portrait {
-    max-width: 190px;
+    max-width: 170px;
   }
 
   .about__bio {
     max-width: none;
+  }
+
+  .about__stats {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 8px;
+  }
+
+  .about__stat {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .about__stat:last-child {
+    border-bottom: 0;
   }
 }

@@ -28,24 +28,25 @@ function About() {
         <div className="section-head__rule" />
       </motion.div>
 
-      <motion.div className="about__grid" variants={panelIn}>
-        <div className="about__intro">
-          {aboutPortrait && (
-            <motion.img
-              className="about__portrait"
-              src={aboutPortrait.src}
-              width={aboutPortrait.width}
-              height={aboutPortrait.height}
-              alt={aboutPortrait.alt[locale]}
-              loading="lazy"
-              decoding="async"
-              variants={fadeIn}
-            />
-          )}
-          <motion.p className="about__bio" variants={fadeIn}>
-            {aboutBio[locale]}
-          </motion.p>
-        </div>
+      <motion.div
+        className={`about__grid${aboutPortrait ? ' has-portrait' : ''}`}
+        variants={panelIn}
+      >
+        {aboutPortrait && (
+          <motion.img
+            className="about__portrait"
+            src={aboutPortrait.src}
+            width={aboutPortrait.width}
+            height={aboutPortrait.height}
+            alt={aboutPortrait.alt[locale]}
+            loading="lazy"
+            decoding="async"
+            variants={fadeIn}
+          />
+        )}
+        <motion.p className="about__bio" variants={fadeIn}>
+          {aboutBio[locale]}
+        </motion.p>
         <motion.dl className="about__stats" variants={stagger}>
           {aboutStats.map((stat) => (
             <motion.div className="about__stat" key={stat.id} variants={fadeIn}>
