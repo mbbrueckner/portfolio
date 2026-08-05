@@ -13,14 +13,14 @@
   --fs-section-heading: clamp(16px, 2.2vw, 32px);
   --fs-contact: clamp(20px, 2.8vw, 44px);
   --fs-body: clamp(14px, 1.3vw, 19px);
-  --fs-meta: clamp(10px, 0.9vw, 13px);
-  --fs-label: 10px;
-  --fs-index: 11px;
+  --fs-meta: clamp(11px, 1vw, 14px);
+  --fs-label: 12px;
+  --fs-index: 12px;
 
   /* Letter spacing */
   --ls-hero: 0.16em;
-  --ls-label: 0.45em;
-  --ls-eyebrow: 0.5em;
+  --ls-label: 0.32em;
+  --ls-eyebrow: 0.34em;
   --ls-meta: 0.25em;
   --ls-heading: 0.04em;
 
