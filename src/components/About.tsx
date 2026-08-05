@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-import { fadeUp, stagger } from '../animations';
+import { fadeIn, fadeUp, panelIn, stagger } from '../animations';
 import { aboutBio, aboutPortrait, aboutStats } from '../data/about';
 import { useLocale } from '../hooks/useLocale';
 
@@ -28,8 +28,9 @@ function About() {
         <div className="section-head__rule" />
       </motion.div>
 
-      <div
+      <motion.div
         className={`about__grid${aboutPortrait ? ' has-portrait' : ''}`}
+        variants={panelIn}
       >
         {aboutPortrait && (
           <motion.img
@@ -40,21 +41,21 @@ function About() {
             alt={aboutPortrait.alt[locale]}
             loading="lazy"
             decoding="async"
-            variants={fadeUp}
+            variants={fadeIn}
           />
         )}
-        <motion.p className="about__bio" variants={fadeUp}>
+        <motion.p className="about__bio" variants={fadeIn}>
           {aboutBio[locale]}
         </motion.p>
         <motion.dl className="about__stats" variants={stagger}>
           {aboutStats.map((stat) => (
-            <motion.div className="about__stat" key={stat.id} variants={fadeUp}>
+            <motion.div className="about__stat" key={stat.id} variants={fadeIn}>
               <dt className="about__stat-label">{stat.label[locale]}</dt>
               <dd className="about__stat-value">{stat.value[locale]}</dd>
             </motion.div>
           ))}
         </motion.dl>
-      </div>
+      </motion.div>
     </motion.section>
   );
 }
