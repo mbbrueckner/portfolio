@@ -11,18 +11,24 @@ export const fadeUp: Variants = {
   },
 };
 
-// The panel carries the movement; its contents only fade, so the two do not
-// compound into a doubled slide.
-export const panelIn: Variants = {
-  hidden: { opacity: 0, y: 30, scale: 0.985 },
+// Unfolds from a hairline like an opening project card. Needs `overflow:
+// hidden` on the element and its padding on an inner wrapper, otherwise the
+// collapsed state still shows a padded strip.
+export const unfold: Variants = {
+  hidden: { height: 0, opacity: 0 },
   visible: {
+    height: 'auto',
     opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.85, ease, delayChildren: 0.22, staggerChildren: 0.09 },
+    transition: {
+      height: { duration: 0.62, ease },
+      opacity: { duration: 0.35, ease },
+      delayChildren: 0.3,
+      staggerChildren: 0.09,
+    },
   },
 };
 
+// Contents only fade, so they do not compound with the panel's own movement.
 export const fadeIn: Variants = {
   hidden: { opacity: 0 },
   visible: {

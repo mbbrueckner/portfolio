@@ -2,15 +2,9 @@
   min-height: 70vh;
 }
 
-/* Row one holds portrait and bio side by side, row two the stats across the
-   full width - three columns would leave neither text nor image enough room. */
-.about__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 44px;
-  align-items: start;
-  max-width: var(--content-max-width);
-  padding: 40px 44px;
+/* Padding lives on the inner grid so the panel can collapse to a hairline. */
+.about__panel {
+  overflow: hidden;
   border: 1px solid var(--glass-border);
   border-radius: 18px;
   background-color: var(--glass-bg);
@@ -20,21 +14,31 @@
   backdrop-filter: var(--glass-filter);
 }
 
+/* Row one holds portrait and bio side by side, row two the stats across the
+   full width - three columns would leave neither text nor image enough room. */
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+  padding: 44px 48px;
+}
+
 .about__grid.has-portrait {
-  grid-template-columns: 250px minmax(0, 1fr);
+  grid-template-columns: 300px minmax(0, 1fr);
 }
 
 /* Cut-out with a transparent background, so no frame and no corner radius. */
 .about__portrait {
   display: block;
   width: 100%;
-  max-width: 250px;
+  max-width: 300px;
   height: auto;
 }
 
 .about__bio {
   align-self: center;
-  max-width: 46ch;
+  max-width: 62ch;
   font-family: var(--font-sans);
   font-size: var(--fs-statement);
   font-weight: var(--fw-extralight);
@@ -92,7 +96,7 @@
   }
 
   .about__portrait {
-    max-width: 170px;
+    max-width: 180px;
   }
 
   .about__bio {

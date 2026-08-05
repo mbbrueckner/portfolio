@@ -10,8 +10,8 @@ export interface AboutStat {
 
 // Draft - rewrite this in your own words.
 export const aboutBio: Localized = {
-  de: 'Informatikstudent in Jena, seit 2024. Mich interessiert, was unter der Oberfläche passiert: numerische Verfahren, systemnahe Programmierung und die Frage, wie man beides schnell bekommt. Am liebsten baue ich Dinge von Grund auf, statt eine fertige Bibliothek einzubinden. Ein Tsunami-Löser, der im Browser läuft, neuronale Netze in C++, kleine Werkzeuge für Probleme, die ich selbst habe.',
-  en: 'Computer science student in Jena, since 2024. I care about what happens beneath the surface: numerical methods, systems programming, and how to make both fast. I would rather build something from the ground up than pull in a finished library. A tsunami solver that runs in the browser, neural networks in C++, small tools for problems I run into myself.',
+  de: 'Ich studiere Informatik in Jena und will eigentlich immer wissen, wie etwas eine Ebene tiefer funktioniert. Deshalb schreibe ich Dinge lieber selbst, als eine fertige Bibliothek einzubinden — einen Tsunami-Löser, der im Browser läuft, neuronale Netze in C++, einen API-Client für die Bahn. Die Projekte, die mir am meisten Spaß machen, entstehen aus eigenen Problemen: Aeolus zum Beispiel, weil ich vor der Ausfahrt wissen wollte, ob sich die Runde bei dem Wetter überhaupt lohnt.',
+  en: 'I study computer science in Jena, and I usually want to know how something works one layer further down. That is why I would rather write things myself than pull in a finished library — a tsunami solver that runs in the browser, neural networks in C++, an API client for Deutsche Bahn. The projects I enjoy most come out of my own problems: Aeolus, for instance, because I wanted to know whether a ride was worth it in that weather.',
 };
 
 export const aboutPortrait: ContentImage | null = {
