@@ -28,14 +28,16 @@ function About() {
         <div className="section-head__rule" />
       </motion.div>
 
-      {/* Own trigger, later than the section's: while the section edge is
-          entering, the last project card still fills the screen. */}
+      {/* The collapsed panel has no height, so an `amount` threshold would be
+          met the moment it appears. Shrinking the observed area from the
+          bottom instead delays the unfold until the panel reaches mid-screen,
+          by which point the last project card has left the viewport. */}
       <motion.div
         className="about__panel"
         variants={unfold}
         initial="hidden"
         whileInView="visible"
-        viewport={{ amount: 0.45 }}
+        viewport={{ margin: '0px 0px -45% 0px' }}
       >
         <div
           className={`about__grid${aboutPortrait ? ' has-portrait' : ''}`}
