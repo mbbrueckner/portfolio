@@ -9,9 +9,13 @@
   gap: 0;
   padding: 6px 8px;
   overflow: hidden;
-  border: 1px solid var(--color-border-hover);
+  border: 1px solid var(--glass-border);
   border-radius: 999px;
-  background: rgba(var(--bg-rgb), 0.5);
+  background-color: var(--glass-bg);
+  background-image: var(--glass-sheen);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
 }
 
 .controls__group {

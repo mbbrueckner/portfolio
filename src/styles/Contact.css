@@ -32,14 +32,25 @@
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--color-text-muted);
+  background-color: transparent;
+  background-image: none;
   transition:
-    color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    -webkit-backdrop-filter 0.3s ease,
+    backdrop-filter 0.3s ease;
 }
 
 .contact__social:hover {
   color: var(--color-link-hover);
-  border-color: var(--color-border-hover);
+  border-color: var(--glass-border);
+  background-color: var(--glass-bg);
+  background-image: var(--glass-sheen);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
   transform: translateY(-2px);
 }
