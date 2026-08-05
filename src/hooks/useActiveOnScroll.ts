@@ -3,7 +3,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 // Expanding a card resizes the list, so a freshly activated item can be pushed
 // past the viewport center right after it wins. The lock gives the layout time
 // to settle, the margin keeps a near-tie from flipping the selection.
-const SETTLE_MS = 520;
+// Slightly longer than the 620ms card animation, so a switch can never start
+// while the previous one is still changing the layout.
+const SETTLE_MS = 700;
 const SWITCH_MARGIN_PX = 56;
 
 // Tracks which `[data-scroll-id]` element inside the container sits closest to

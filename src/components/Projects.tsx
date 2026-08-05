@@ -10,6 +10,10 @@ import '../styles/Projects.css';
 
 type ProjectEntry = (typeof projects)[number];
 
+// Kept in sync with --card-duration in Projects.css: the CSS padding transition
+// changes layout height too and has to run on the same clock.
+const CARD_MS = 0.62;
+
 interface ProjectItemProps {
   project: ProjectEntry;
   index: number;
@@ -65,20 +69,23 @@ function ProjectItem({
               id={cardId}
               className="project__card"
               initial={{ opacity: 0, height: 0 }}
+              // Both directions share one duration with no delay, so the
+              // closing and opening cards cancel each other out in page height
+              // instead of growing first and shrinking afterwards.
               animate={{
                 opacity: 1,
                 height: 'auto',
                 transition: {
-                  height: { duration: 0.7, ease },
-                  opacity: { duration: 0.5, ease, delay: 0.18 },
+                  height: { duration: CARD_MS, ease },
+                  opacity: { duration: 0.4, ease, delay: 0.22 },
                 },
               }}
               exit={{
                 opacity: 0,
                 height: 0,
                 transition: {
-                  height: { duration: 0.6, ease, delay: 0.08 },
-                  opacity: { duration: 0.25, ease },
+                  height: { duration: CARD_MS, ease },
+                  opacity: { duration: 0.18, ease },
                 },
               }}
             >

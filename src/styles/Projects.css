@@ -10,17 +10,20 @@
 }
 
 .project {
+  /* Must match CARD_MS in Projects.tsx - padding changes layout height. */
+  --card-duration: 0.62s;
+
   border: 1px solid transparent;
   border-bottom-color: var(--color-border);
   border-radius: 18px;
   transition:
-    padding 0.7s var(--ease-soft),
-    background-color 0.7s var(--ease-soft),
-    background-image 0.7s var(--ease-soft),
-    border-color 0.7s var(--ease-soft),
-    box-shadow 0.7s var(--ease-soft),
-    -webkit-backdrop-filter 0.7s var(--ease-soft),
-    backdrop-filter 0.7s var(--ease-soft);
+    padding var(--card-duration) var(--ease-soft),
+    background-color 0.8s var(--ease-soft),
+    background-image 0.8s var(--ease-soft),
+    border-color 0.8s var(--ease-soft),
+    box-shadow 0.8s var(--ease-soft),
+    -webkit-backdrop-filter 0.8s var(--ease-soft),
+    backdrop-filter 0.8s var(--ease-soft);
 }
 
 .project.is-active {
@@ -35,8 +38,8 @@
 
 .project__inner {
   transition:
-    opacity 0.7s var(--ease-soft),
-    transform 0.7s var(--ease-soft);
+    opacity 0.8s var(--ease-soft),
+    transform 0.8s var(--ease-soft);
 }
 
 .project:not(.is-active) .project__inner {
