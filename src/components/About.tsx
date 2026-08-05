@@ -28,7 +28,15 @@ function About() {
         <div className="section-head__rule" />
       </motion.div>
 
-      <motion.div className="about__panel" variants={unfold}>
+      {/* Own trigger, later than the section's: while the section edge is
+          entering, the last project card still fills the screen. */}
+      <motion.div
+        className="about__panel"
+        variants={unfold}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.45 }}
+      >
         <div
           className={`about__grid${aboutPortrait ? ' has-portrait' : ''}`}
         >
