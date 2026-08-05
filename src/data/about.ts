@@ -15,8 +15,8 @@ export const aboutBio: readonly Localized[] = [
     en: 'I study computer science in Jena, and I can rarely take something at face value without knowing how it works one layer further down. I am drawn to problems where you have to weigh compute time against accuracy – that constant compromise between ‘fast enough’ and ‘accurate enough’ is what fascinates me.',
   },
   {
-    de: 'Den Ausgleich dazu finde ich draußen: auf dem Rad, zu Fuß, einfach in Bewegung und ohne Bildschirm. Das hilft mir meistens mehr beim Denken als noch eine Stunde vor dem Code zu sitzen.',
-    en: 'My counterweight to that is being outdoors: on the bike, on foot, simply moving and away from a screen. That usually helps me think more than another hour in front of the code.',
+    de: 'Den Ausgleich dazu finde ich draußen: auf dem Rad, zu Fuß, einfach in Bewegung und ohne Bildschirm.',
+    en: 'My counterweight to that is being outdoors: on the bike, on foot, simply moving and away from a screen.',
   },
 ];
 
