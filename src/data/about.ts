@@ -55,6 +55,9 @@ export const aboutStats: readonly AboutStat[] = [
   {
     id: 'location',
     label: { de: 'Standort', en: 'Location' },
-    value: { de: 'Jena', en: 'Jena' },
+    value: {
+      de: 'Jena, Thüringen, Deutschland',
+      en: 'Jena, Thuringia, Germany',
+    },
   },
 ];
