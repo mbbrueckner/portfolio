@@ -37,7 +37,7 @@ function About() {
         variants={unfold}
         initial="hidden"
         whileInView="visible"
-        viewport={{ margin: '0px 0px -45% 0px' }}
+        viewport={{ margin: '0px 0px -22% 0px' }}
       >
         <div
           className={`about__grid${aboutPortrait ? ' has-portrait' : ''}`}
