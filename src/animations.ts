@@ -20,10 +20,10 @@ export const unfold: Variants = {
     height: 'auto',
     opacity: 1,
     transition: {
-      height: { duration: 0.62, ease },
-      opacity: { duration: 0.35, ease },
-      delayChildren: 0.3,
-      staggerChildren: 0.09,
+      height: { duration: 0.95, ease },
+      opacity: { duration: 0.45, ease },
+      delayChildren: 0.5,
+      staggerChildren: 0.1,
     },
   },
 };
