@@ -2,7 +2,6 @@ import type { Project } from '../types';
 
 const project: Project = {
   id: 'axon',
-  order: 2,
   title: 'Axon',
   year: '2026',
   url: 'https://github.com/mbbrueckner/axon',

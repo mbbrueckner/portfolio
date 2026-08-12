@@ -2,7 +2,6 @@ import type { Project } from '../types';
 
 const project: Project = {
   id: 'deutsche-bahn',
-  order: 3,
   title: 'deutsche-bahn',
   year: '2026',
   url: 'https://pypi.org/project/deutsche-bahn-py/',

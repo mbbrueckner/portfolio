@@ -2,7 +2,6 @@ import type { ContentImage, Localized } from '../types';
 
 export interface Project {
   id: string;
-  order: number;
   title: string;
   year: string;
   url: string;

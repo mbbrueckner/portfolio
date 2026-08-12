@@ -2,7 +2,6 @@ import type { Project } from '../types';
 
 const project: Project = {
   id: 'aeolus',
-  order: 4,
   title: 'Aeolus',
   year: '2026',
   url: 'https://aeolus.mbrueckner.dev/',

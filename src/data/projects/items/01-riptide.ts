@@ -6,7 +6,6 @@ import type { Project } from '../types';
 //   image: { src: cover, width: 1600, height: 1000, alt: { de: '...', en: '...' } },
 const project: Project = {
   id: 'riptide',
-  order: 1,
   title: 'Riptide',
   year: '2026',
   url: 'https://squadcommit.github.io/Riptide/',
